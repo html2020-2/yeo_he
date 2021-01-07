@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+@import "_mixin";
+
+#box_wrap{height: 100vh; background-color: yellow;display: flex;}
+#box_wrap .w26{
+    #digitalBox{background-color: #100964; color: #fffabf;height: 24vh;display: flex;  
+    &::after{
+        content: "";position: absolute;background: url("../images/index/dia.png") no-repeat; width: 18px; height: 18px;top: 1%;left: 1%;}
+        #digital{ 
+            @include border-radius(50%);
+            @include border-box;
+            display: flex;align-items: center;justify-content: center;width: 95%; height: 90%; border: 1px solid #fffabf;font-size: 1.5vw;margin: auto;text-align: center;}
+    }
+    #aboutWrap{background: #000;color:#fffabf;height: 47vh;width: 100%;
+        .tit{font-size: 1.8vw;height: 16%; border-bottom: 1px solid #fffabf; width: 100%;
+            h2{
+                span{
+                    @include transform(translateY(-50%));
+                    top: 50%;}
+                span:first-child{left: 4%;}
+                span:last-child{right: 4%;}
+            }
+        }
+        #clickSmile{font-size: 0.7vw;font-weight: 700;line-height: 0.7vw;}
+        .aboutMain{
+            height: 75%; overflow: hidden;
+            > *{position: absolute;}
+            // 가로 세로 라인과 원 이미지 처리
+            .line, .circle{@include transition(all 0.2s);}
+            .line{background: #00ff00;}
+            .verline{width: 1px;height: 100%;top: 0;left: 140px;}
+            .horline{width: 100%;height: 1px;top: 275px;left: 0;}
+            .circle{
+                top: 54px;
+                left: -78px;
+                width: 89.8%;
+                img{width: 100%;
+                }
+            }
+
+            .f_c{left: 4%;bottom: 10%;}
+            .smile{
+                @include transform(translate(-50%, -50%));
+                top: 50%;left: 50%;}
+            .l_c{right: 4%;top: 10%;}
+            
+        }
+        .position{height: 9%;border-top:1px solid #fffabf;;}
+        
+
+    }
+    #moveSection{font-size: 0.8vw;height: 29%;
+    .half{width: 50%;height: 100%;position: relative;
+        p{
+            @include transform(translate(-50%, -50%));
+           position: absolute;top: 50%;left: 50%;text-align: center;}}
+    .half:first-child{
+        @include bgsize(cover);
+        background: url("../images/index/holrogramBg.jpg") no-repeat center;position: relative;
+        p{color: #7800a0;}
+    &::before{content: "";position: absolute;}}
+    .half:last-child{
+        background-color: #7800a0;
+        p{color: #a1ffaa;}
+    }//16px=0.8vw
+    }
+}
+#box_wrap .w52{
+    #portfolio{height: 71%;background-color: #1800fd;}
+}

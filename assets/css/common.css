@@ -1,0 +1,113 @@
+@font-face {
+  font-family: syne;
+  font-weight: 500;
+  font-style: normal;
+  src: url("../font/Syne-Regular.eot");
+  src: url("../font/Syne-Regular.eot#iefix") format("embedded-opentype"), url("../font/Syne-Regular.woff2") format("woff2"), url("../font/Syne-Regular.woff") format("woff"), url("../font/Syne-Regular.otf") format("opentype"); }
+@font-face {
+  font-family: syne;
+  font-weight: 700;
+  font-style: normal;
+  src: url("../font/Syne-Bold.eot");
+  src: url("../font/Syne-Bold.eot#iefix") format("embedded-opentype"), url("../font/Syne-Bold.woff2") format("woff2"), url("../font/Syne-Bold.woff") format("woff"), url("../font/Syne-Bold.otf") format("opentype"); }
+@font-face {
+  font-family: syne;
+  font-weight: 800;
+  font-style: normal;
+  src: url("../font/Syne-ExtraBold.eot");
+  src: url("../font/Syne-ExtraBold.eot#iefix") format("embedded-opentype"), url("../font/Syne-ExtraBold.woff2") format("woff2"), url("../font/Syne-ExtraBold.woff") format("woff"), url("../font/Syne-ExtraBold.otf") format("opentype"); }
+@font-face {
+  font-family: Mot;
+  font-weight: 500;
+  font-style: normal;
+  src: url("../font/MonumentExtended-Regular.eot");
+  src: url("../font/MonumentExtended-Regular.eot#iefix") format("embedded-opentype"), url("../font/MonumentExtended-Regular.woff2") format("woff2"), url("../font/MonumentExtended-Regular.woff") format("woff"), url("../font/MonumentExtended-Regular.otf") format("opentype"); }
+@font-face {
+  font-family: Mot;
+  font-weight: 500;
+  font-style: normal;
+  src: url("../font/MonumentExtended-Regular.eot");
+  src: url("../font/MonumentExtended-Regular.eot#iefix") format("embedded-opentype"), url("../font/MonumentExtended-Regular.woff2") format("woff2"), url("../font/MonumentExtended-Regular.woff") format("woff"), url("../font/MonumentExtended-Regular.otf") format("opentype"); }
+@font-face {
+  font-family: Mot;
+  font-weight: 800;
+  font-style: normal;
+  src: url("../font/MonumentExtended-Ultrabold.eot");
+  src: url("../font/MonumentExtended-Ultrabold.eot#iefix") format("embedded-opentype"), url("../font/MonumentExtended-Ultrabold.woff2") format("woff2"), url("../font/MonumentExtended-Ultrabold.woff") format("woff"), url("../font/MonumentExtended-Ultrabold.otf") format("opentype"); }
+@font-face {
+  font-family: yoon;
+  font-weight: 300;
+  font-style: normal;
+  src: url("../font/Yoon340.eot");
+  src: url("../font/Yoon340.eot#iefix") format("embedded-opentype"), url("../font/Yoon340.woff2") format("woff2"), url("../font/Yoon340.woff") format("woff"), url("../font/Yoon340.otf") format("opentype"); }
+/* tag reset */
+body, h1, h2, p, button, img, figure, ul, li {
+  margin: 0;
+  padding: 0; }
+
+h1, h2 {
+  font-size: 100%; font-weight: inherit; }
+
+ul, li {
+  list-style: none; }
+
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
+  color: inherit; }
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+font-weight: inherit; }
+
+img {
+  border: none;
+  vertical-align: top;
+  max-width: 100%; }
+
+/* common class */
+.w26 {
+  width: 26%; }
+
+.w52 {
+  width: 52%; }
+
+.w22 {
+  width: 22%; }
+
+.f_l {
+  float: left; }
+
+.f_r {
+  float: right; }
+
+.p_r {
+  position: relative; }
+
+.p_a {
+  position: absolute; }
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both; }
+
+.blind-b {
+  overflow: hidden;
+  border: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%); }
+
+body {
+  font-family: syne, Mot, yoon;
+  font-size: 36px;
+  font-weight: 800; }
+
+/*# sourceMappingURL=common.css.map */

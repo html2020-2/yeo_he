@@ -1,0 +1,142 @@
+#box_wrap {
+  height: 100vh;
+  background-color: yellow;
+  display: flex; }
+
+#box_wrap .w26 #digitalBox {
+  background-color: #100964;
+  color: #fffabf;
+  height: 24vh;
+  display: flex; }
+  #box_wrap .w26 #digitalBox::after {
+    content: "";
+    position: absolute;
+    background: url("../images/index/dia.png") no-repeat;
+    width: 18px;
+    height: 18px;
+    top: 1%;
+    left: 1%; }
+  #box_wrap .w26 #digitalBox #digital {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    height: 90%;
+    border: 1px solid #fffabf;
+    font-size: 1.5vw;
+    margin: auto;
+    text-align: center; }
+#box_wrap .w26 #aboutWrap {
+  background: #000;
+  color: #fffabf;
+  height: 47vh;
+  width: 100%; }
+  #box_wrap .w26 #aboutWrap .tit {
+    font-size: 1.8vw;
+    height: 16%;
+    border-bottom: 1px solid #fffabf;
+    width: 100%; }
+    #box_wrap .w26 #aboutWrap .tit h2 span {
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      top: 50%; }
+    #box_wrap .w26 #aboutWrap .tit h2 span:first-child {
+      left: 4%; }
+    #box_wrap .w26 #aboutWrap .tit h2 span:last-child {
+      right: 4%; }
+  #box_wrap .w26 #aboutWrap #clickSmile {
+    font-size: 0.7vw;
+    font-weight: 700;
+    line-height: 0.7vw; }
+  #box_wrap .w26 #aboutWrap .aboutMain {
+    height: 75%;
+    overflow: hidden; }
+    #box_wrap .w26 #aboutWrap .aboutMain > * {
+      position: absolute; }
+    #box_wrap .w26 #aboutWrap .aboutMain .line, #box_wrap .w26 #aboutWrap .aboutMain .circle {
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      -o-transition: all 0.2s;
+      transition: all 0.2s; }
+    #box_wrap .w26 #aboutWrap .aboutMain .line {
+      background: #00ff00; }
+    #box_wrap .w26 #aboutWrap .aboutMain .verline {
+      width: 1px;
+      height: 100%;
+      top: 0;
+      left: 140px; }
+    #box_wrap .w26 #aboutWrap .aboutMain .horline {
+      width: 100%;
+      height: 1px;
+      top: 275px;
+      left: 0; }
+    #box_wrap .w26 #aboutWrap .aboutMain .circle {
+      top: 54px;
+      left: -78px;
+      width: 89.8%; }
+      #box_wrap .w26 #aboutWrap .aboutMain .circle img {
+        width: 100%; }
+    #box_wrap .w26 #aboutWrap .aboutMain .f_c {
+      left: 4%;
+      bottom: 10%; }
+    #box_wrap .w26 #aboutWrap .aboutMain .smile {
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%; }
+    #box_wrap .w26 #aboutWrap .aboutMain .l_c {
+      right: 4%;
+      top: 10%; }
+  #box_wrap .w26 #aboutWrap .position {
+    height: 9%;
+    border-top: 1px solid #fffabf; }
+#box_wrap .w26 #moveSection {
+  font-size: 0.8vw;
+  height: 29%; }
+  #box_wrap .w26 #moveSection .half {
+    width: 50%;
+    height: 100%;
+    position: relative; }
+    #box_wrap .w26 #moveSection .half p {
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      text-align: center; }
+  #box_wrap .w26 #moveSection .half:first-child {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    background: url("../images/index/holrogramBg.jpg") no-repeat center;
+    position: relative; }
+    #box_wrap .w26 #moveSection .half:first-child p {
+      color: #7800a0; }
+    #box_wrap .w26 #moveSection .half:first-child::before {
+      content: "";
+      position: absolute; }
+  #box_wrap .w26 #moveSection .half:last-child {
+    background-color: #7800a0; }
+    #box_wrap .w26 #moveSection .half:last-child p {
+      color: #a1ffaa; }
+
+#box_wrap .w52 #portfolio {
+  height: 71%;
+  background-color: #1800fd; }
+
+/*# sourceMappingURL=main.css.map */
