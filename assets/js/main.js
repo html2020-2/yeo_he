@@ -162,5 +162,57 @@ $(document).ready(function () {
         ballTimer = 0;
       }
     }
+
+    // modal window
+    //modal1) 열기 버튼 클릭 이벤트
+  $('#aboutWrap .smile').on('click', function (e) {
+    //1) 필요한 변수 선언
+    var _openBtn = $(this); //모달 닫기 버튼 클릭시 포커스 강제 이동을 위해
+    var _mdCnt = $( $(this).data('target') );
+    //console.log(_mdCnt, typeof _mdCnt); //string타입을 $()로 감싸서 선택자로 변경함 
+    var _closeBtn = _mdCnt.find('.class');
+    var _dim =_mdCnt.find('.background');
+    var timer = 0;
+
+    //modal2) 스크린리더에서는 열려진 모달 말고는 접근하지 못하도록 제어(보조기술이 미구현 되어서 추가해 줌) aria-hidden="true" inert(비활성, 불활성)
+    _mdCnt.siblings().attr({'aria-hidden': true, inert: true});
+
+    //modal3) 모달 컨텐츠를 보여지게 처리, 첫번째 링크에 포커스 강제 이동
+    _mdCnt.css('visibility', 'visible').stop().animate({opacity: 1}, function () {
+      _closeBtn.focus();
+    });
+
+    //modal4) 접근성을 위해 추가 : 닫기 버튼을 누르기 전까지 포커스는 모달 내부에 존재해야 함
+    //닫기버튼에서 shift+tab / shift(X)+tab을 누르면 포커스는 자신에게만 강제이동
+    _closeBtn.on('keydown', function (e) {
+      e.preventDefault();   //기본 기능 차단
+
+      console.log(e.keyCode); //tab 9
+      if (e.shiftKey && e.keyCode === 9 || !e.shiftKey && e.keyCode === 9)  _closeBtn.focus();
+      if (e.keyCode === 13) _closeBtn.click();
+    });
+
+    //modal닫기 버튼 클릭 이벤트
+    _closeBtn.on('click', function () {
+      //1) 모달컨텐츠 숨기기(visibility) => 모달상세컨텐츠의 나머지 형제들을 스크린리더에서 접근할수 있도록 되돌리기(속성제거 - aria-hidden, inert)
+      _mdCnt.stop().animate({opacity: 0}, function () {
+        $(this).css('visibility', 'hidden').siblings().removeAttr('aria-hidden inert');
+      });
+
+      //2) 열기 버튼으로 포커스 강제 이동
+      _openBtn.focus();
+    });
+
+    //#dim을 클릭하는 경우도 닫겨진다
+    _dim.on('click', function () {
+      _closeBtn.trigger('click');
+    });
+    //esc 키보드를 누른 경우도 닫겨진다
+    $(window).on('keydown', function (e) {
+      //console.log(e.keyCode); //esc 27
+      if (e.keyCode === 27) _closeBtn.click();
+    });
+  });
+
 });
 

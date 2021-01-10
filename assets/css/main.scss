@@ -142,61 +142,45 @@
 }
 
 .modal{
-    &:target, &.force{ 
-        @include transform(translateY(0px));
-        opacity:1;
-        animation:none;
-        .view{
-           transition:all 1s ease-in-out;
-           transform:translateY(0px);
-        }
-     }
-    /* @include transition(opacity 0.5s); */
-    position: fixed;top: 0;left: 0;width: 100%;height: 100%; opacity: 0;transition:opacity 0.5s;animation: 1s hide infinite;
-    animation-delay:0.5s;
+    position: fixed;top: 0;left: 0;width: 100%;height: 100%; visibility: hidden;opacity: 0;
     
     .background{
-        position: absolute;width: 100%;height: 100%;left: 0;top: 0;background-color: #000; opacity: 0.5;
+        position: fixed;width: 100%;height: 100%;left: 0;top: 0;background-color: #000; opacity: 0.5;
     }
     .view-container{
         .view{
             @include transition(all 1s ease-in-out);
             @include transform(translateY(0%));
             position: relative;margin: 50px auto; width: 44.38vw;background: #fff;font-size: 0.63vw;border:2px solid #000;height: 44.5vw;
-         .header{font-size: 0.78vw; height: 2.24vw;background-color: #ff7800;line-height: 2.24vw;border-bottom: 2px solid #000;padding-left: 1.67vw;
-                a{
-                    @include bgsize(cover);
-                    background: url("../images/about_me/x.png") no-repeat center;width:  2.24vw;height:  2.24vw;position: absolute;right: 0;border-left: 2px solid #000;top: 0;
-                }
-            }  
-        .content{position: relative;
-            >p{font-size: 3vw;position: absolute;top: 2.2vw;left: 10%;z-index: 10;}
-            .triangle{position: absolute;top: 7.3vw;right: 9%;
-            img{width: 12.66vw;}}
-            .intro{
-                @include border-radius(22px);
-                width: 38.16vw;height: 18.41vw;border: 3px solid #ff7800;
-                position: absolute;top: 10.2vw;left: 7%;font-family: yoon;
-                div{display: inline-block;position: absolute;}
-                .haeun{width: 11.25vw;top: 1.5vw;left: 1vw;}
-                .sand{width: 12.66vw;top: 6vw;left: 12.5vw;}
-                .sky{width: 25vw;bottom: 1.3vw;right: 0.5vw;}
-                img{height: auto;max-width: 100%;vertical-align: bottom;}
-                ul{float: right; width: 24vw;height: 100%;
-                    
-                    .name{float: left;height: 100%;width: 40%;}
-                    .birth, .eMail, .tel, .introTxt{float: right;width: 60%;}
-                    li{margin-top: 0.8vw;}
-                    .section{height: 100%;
-                    li{width: 100%;}}
-                    .name, .birth{margin-top: 2.2vw;}
-                    .eMail{p+p{padding-left: 0.58vw;}}
-                    .tel{p+p{padding-left: 1.8vw;}}
-                    .introTxt{p+p{padding-left: 1.3vw;}}
-                    li>p{float: left;}
-                    li>p+p{margin-left: 1.4vw;}
-                    }                
-                }
+            .header{font-size: 0.78vw; height: 2.24vw;background-color: #ff7800;line-height: 2.24vw;border-bottom: 2px solid #000;padding-left: 1.67vw;}  
+            .content{position: relative;
+                >p{font-size: 3vw;position: absolute;top: 2.2vw;left: 10%;z-index: 10;}
+                .triangle{position: absolute;top: 7.3vw;right: 9%;
+                img{width: 12.66vw;}}
+                .intro{
+                    @include border-radius(22px);
+                    width: 38.16vw;height: 18.41vw;border: 3px solid #ff7800;
+                    position: absolute;top: 10.2vw;left: 7%;font-family: yoon;
+                    div{display: inline-block;position: absolute;}
+                    .haeun{width: 11.25vw;top: 1.5vw;left: 1vw;}
+                    .sand{width: 12.66vw;top: 6vw;left: 12.5vw;}
+                    .sky{width: 25vw;bottom: 1.3vw;right: 0.5vw;}
+                    img{height: auto;max-width: 100%;vertical-align: bottom;}
+                    ul{float: right; width: 24vw;height: 100%;
+                        
+                        .name{float: left;height: 100%;width: 40%;}
+                        .birth, .eMail, .tel, .introTxt{float: right;width: 60%;}
+                        li{margin-top: 0.8vw;}
+                        .section{height: 100%;
+                        li{width: 100%;}}
+                        .name, .birth{margin-top: 2.2vw;}
+                        .eMail{p+p{padding-left: 0.58vw;}}
+                        .tel{p+p{padding-left: 1.8vw;}}
+                        .introTxt{p+p{padding-left: 1.3vw;}}
+                        li>p{float: left;}
+                        li>p+p{margin-left: 1.4vw;}
+                        }                
+                    }
             } 
             .down{position: absolute;top: 31vw;width: 100%;font-family: yoon;
                 >div{float: left;width: 100%;
@@ -213,43 +197,47 @@
 
                     }
                 }
-                .do{
-                    ul{
-                        .design, .coding{width: 100%;
-                            &+li{margin-top: 1.41vw;}
-                            >p{margin-right: 0.5vw;width: 20%;}
-                            p{float: left; }
-                            ul>{float:right;width: 80%;
-                                >li{width: 100%;float: left;}
+                    .do{
+                        ul{
+                            .design, .coding{width: 100%;
+                                &+li{margin-top: 1.41vw;}
+                                >p{margin-right: 0.5vw;width: 20%;}
+                                p{float: left; }
+                                ul>{float:right;width: 80%;
+                                    >li{width: 100%;float: left;}
+                                }
+                            .percent{width: 1.98vw;display: inline-block;
+                            >p{width: 100%;text-align: center;}}
+                            .percent+.percent{margin-left: 0.5vw;}
+                        }
+                        .design{
+                            .p100{
+                                @include border-radius(50%);position: relative;
+                                width: 1.93vw;height: 1.98vw;background: #ff7800;
+                                p:first-child{
+                                    @include transform(translateY(-80%));
+                                    position: absolute;top: 50%;}
+                            p:last-child{font-size: 0.52vw;position: absolute;bottom: 0;}}
+                            .orangeTop{
+                                width: 1.93vw;
+                                img{height: auto;max-width: 100%;vertical-align: bottom;}
                             }
-                         .percent{width: 1.98vw;display: inline-block;
-                        >p{width: 100%;text-align: center;}}
-                        .percent+.percent{margin-left: 0.5vw;}
-                    }
-                    .design{
-                        .p100{
-                            @include border-radius(50%);position: relative;
-                            width: 1.93vw;height: 1.98vw;background: #ff7800;
-                            p:first-child{
+                            .p70, .p60, .p50{position: relative;
+                                p{width: 100%;text-align: center;}
+                                p:first-child{
                                 @include transform(translateY(-80%));
                                 position: absolute;top: 50%;}
-                        p:last-child{font-size: 0.52vw;position: absolute;bottom: 0;}}
-                        .orangeTop{
-                            width: 1.93vw;
-                            img{height: auto;max-width: 100%;vertical-align: bottom;}
+                            p:last-child{font-size: 0.52vw;position: absolute;bottom: 0;}}
                         }
-                        .p70, .p60, .p50{position: relative;
-                            p{width: 100%;text-align: center;}
-                            p:first-child{
-                            @include transform(translateY(-80%));
-                            position: absolute;top: 50%;}
-                        p:last-child{font-size: 0.52vw;position: absolute;bottom: 0;}}
+                        
                     }
-                    
                 }
-            }
-        }   
-        }
+            } 
+            .class{
+                @include bgsize(cover);
+                background: url("../images/about_me/x.png") no-repeat center;width:  2.24vw;height:  2.24vw;position: absolute;right: 0;border-left: 2px solid #000;top: 0;
+            }  
+        } //.view
     }
 
 }
