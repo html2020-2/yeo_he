@@ -73,11 +73,12 @@
 
 /* tag reset */
 body, h1, h2, p, button, img, figure, ul, li{margin: 0;padding: 0;}
-h1, h2{font-size: 100%;}
+h1, h2{font-size: 100%;font-weight: inherit;}
 ul, li{list-style: none;}
 a:link, a:visited, a:hover, a:active{text-decoration: none; color: inherit;}
-button{background: none; border: none; cursor: pointer;font-family: inherit;font-size: inherit;color: inherit;}
+button{background: none; border: none; cursor: pointer;font-family: inherit;font-size: inherit;color: inherit;font-weight: inherit;}
 img{border: none; vertical-align: top;max-width: 100%;}
+figure{display: block;}
 
 /* common class */
 .w26 {width: 26%;}
@@ -85,6 +86,8 @@ img{border: none; vertical-align: top;max-width: 100%;}
 .w22 {width: 22%;}
 .f_l{float: left;}
 .f_r{float: right;}
+.p_r{position: relative;}
+.p_a{position: absolute;}
 .clearfix::after{content:""; display: block;clear: both;}
 .blind-b{overflow: hidden;border: none;position: absolute;width: 1px;height: 1px;clip: rect(1px, 1px, 1px, 1px); clip-path: inset(50%);}
 

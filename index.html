@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <script src="assets/js/jquery-1.12.4.min.js"></script>
     <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
     <script src="assets/js/main.js"></script>
 </head>
 <body>
@@ -20,25 +21,26 @@
                 <h2 class="blind-b">현재 시간을 알려주는 디지털 시계</h2>
                 <div id="digital"></div>
             </div>
-            <div id="aboutWrap">
-                <div class="tit p_r">
-                    <h2>
-                        <span class="p_a">ABOUT</span> <span class="p_a">ME</span>
-                    </h2>
-                </div>  
-                <div class="aboutMain p_r">
-                    <!-- 세로라인, 가로라인, .circle 원이미지 처리
-
-                        alt="겹쳐진 타원 두개" 는 스크린리더에서 읽어줄 필요 없는 장식 이랍니다
-                    -->
-                    <div class="verline line"></div>
-                    <div class="horline line"></div>
-                    <div class="circle"><img src="assets/images/index/focus.png" alt=""></div>
-                    
-                    <img class="f_c" src="assets/images/index/smile_before.png" alt="">
-                    <a href="" class="smile"><img src="assets/images/index/smile.png" alt="About"></a>
-                    <img class="l_c" src="assets/images/index/smile_after.png" alt="">
-                </div>
+            <div id="aboutWrap" >
+                <div class="tit p_r" >
+                        <h2>
+                            <span class="p_a">ABOUT</span>
+                            <span class="p_a">ME</span>
+                        </h2>
+                    </div>  
+                    <div class="aboutMain p_r">
+                        <!-- 세로라인, 가로라인, .circle 원이미지 처리
+    
+                            alt="겹쳐진 타원 두개" 는 스크린리더에서 읽어줄 필요 없는 장식 이랍니다
+                        -->
+                        <div class="verline line"></div>
+                        <div class="horline line"></div>
+                        <div class="circle"><img src="assets/images/index/focus.png" alt=""></div>
+                        
+                        <img class="f_c" src="assets/images/index/smile_before.png" alt="">
+                        <a href="#modal" class="smile"><img src="assets/images/index/smile.png" alt="About"></a>
+                        <img class="l_c" src="assets/images/index/smile_after.png" alt="">
+                    </div>
                 <div class="position">
                 </div>
             </div>
@@ -60,6 +62,7 @@
                     <img src="assets/images/index/work.png" alt="작업물">
                 </div>
                 <div class="bottom clearfix">
+                    <p>CHOOSE!!</p>
                     <ul>
                         <li class="f_l half">
                             <button type="button" >GRAPIC DESIGN</button>
@@ -78,16 +81,15 @@
             </div>
             <div class="card" id="ver">
                 <div class="front">
-                    <figure><img src="assets/images/index/yoda.jpg" alt="요다"></figure>
                     <p>CONTACT?</p>
                 </div>
                 <div class="back">
-                    <img src="assets/images/index/yodaStiker.png" alt="요다스티커">
-                    <p>010 6338 5514</p>
-                    <p>gkdmsdlwkd@gmail.com</p>
-                    <a href="">behance</a>
-                    <a href="">instagram</a>
-                    <p>CONTACT!</p>
+                    <div class="yoda"></div>
+                    <p class="phone">010 6338 5514</p>
+                    <p class="email">gkdmsdlwkd@gmail.com</p>
+                    <a href="" class="be">behance</a>
+                    <a href="" class="insta">instagram</a>
+                    <p class="contact">CONTACT!</p>
                 </div>
             </div>
         </div>
@@ -97,8 +99,164 @@
             </div>
             <div class="box" id="panel">
             <div id="ball"></div>
+            <div class="text">
+                <p class="bounce">BOUNCE</p>
+                <p class="the">THE</p>
+                <p class="ball">BALL</p>
+            </div>
             </div>
         </div>
+    </div>
+    <div class="modal" id="modal">
+        <div class="background"></div>
+    <div class="view-container">
+        <div class="view">
+            <div class="header">
+                <p>about me</p>
+                <a href="#" class="class"></a>
+            </div>
+            <div class="content clearfix">
+                <p>Hi! My name is<br>Yeo Ha Eun!</p>
+                <div class="triangle"><img src="assets/images/about_me/triangle.png" alt=""></div>
+                <div class="intro clearfix">
+                    <h2 class="blind-b">simple introduction myself</h2>
+                        <div class="haeun">
+                            <img src="assets/images/about_me/me.png" alt="여하은">
+                        </div>
+                        <div class="sand">
+                            <img src="assets/images/about_me/likeToo.png" alt="모래사장">
+                        </div>
+                        <div class="sky">
+                            <img src="assets/images/about_me/nature.png" alt="파란하늘">
+                        </div>
+                    <ul>
+                        <li class="name">
+                            <p>이름</p>
+                            <p>여하은</p>
+                        </li>
+                        <div class="section">
+                            <li class="birth">
+                                <p>생년월일</p>
+                                <p>1998.01.15</p>
+                            </li>
+                            <li class="eMail">
+                                <p>e-mail</p>
+                                <p>gkdmsdlwkd@gmail.com</p>
+                            </li>
+                            <li class="tel">
+                                <p>tel</p>
+                                <p>010-6338-5514</p>
+                            </li>
+                            <li class="introTxt">
+                                <p>소개</p>
+                                <p>all-rounder uxui designer가<br> 되고자 노력하는 여하은이라고<br>합니다. 잘 부탁드립니다 :)</p>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+                <div class="down clearfix">
+                    <div>
+                        <div class="education">
+                            <h2>EDUCATION</h2>
+                            <ul>
+                                <li class=" clearfix">
+                                    <p>2023</p>
+                                    <p>성신여자대학교 산업디자인학과 졸업</p>
+                                </li>
+                                <li class=" clearfix">
+                                    <p>2021</p>
+                                    <p>한국디지털기업협회 uxui 기반<br>반응형 웹퍼블리셔 훈련과정 이수</p>
+                                </li>
+                                <li class=" clearfix">
+                                    <p>2018</p>
+                                    <p>경기예술고등학교 미술과 졸업</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="do">
+                            <h2>I CAN DO</h2>
+                            <ul>
+                                <li class="clearfix design">
+                                    <p>DESIGN</p>
+                                    <ul>
+                                        <li class="p100 percent">
+                                            <p>AI</p>
+                                            <p>100%</p>
+                                        </li>
+                                        <li class="p100 percent">
+                                            <p>PS</p>
+                                            <p>100%</p>
+                                        </li>
+                                        <li class="p70 percent">
+                                            <div class="orangeTop">
+                                                <img src="assets/images/about_me/d_c70.png" alt="">
+                                            </div>
+                                            <p>AE</p>
+                                            <p>70%</p>
+                                        </li>
+                                        <li class="p70 percent">
+                                            <div class="orangeTop">
+                                                <img src="assets/images/about_me/d_c70.png" alt="">
+                                            </div>
+                                            <p>XD</p>
+                                            <p>70%</p>
+                                        </li>
+                                        <li class="p60 percent">
+                                            <div class="orangeTop">
+                                                <img src="assets/images/about_me/d_c60.png" alt="">
+                                                <p>ID</p>
+                                                <p>60%</p>
+                                            </div>
+                                            
+                                        </li>
+                                        <li class="p50 percent">
+                                            <div class="orangeTop">
+                                                <img src="assets/images/about_me/d_C50.png" alt="">
+                                            </div>
+                                            <p>3D MAX</p>
+                                            <p>50%</p>
+                                        </li>
+                                        <li class="p50 percent">
+                                            <div class="orangeTop">
+                                                <img src="assets/images/about_me/d_C50.png" alt="">
+                                            </div>
+                                            <p>CINEMA 4D</p>
+                                            <p>50%</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="coding">
+                                    <p>CODING</p>
+                                    <ul class="clearfix">
+                                        <li class="p90 percent">
+                                            <p>HTML</p>
+                                            <p>90%</p>
+                                        </li>
+                                        <li class="p90 percent">
+                                            <p>CSS</p>
+                                            <p>90%</p>
+                                        </li>
+                                        <li class="p90 percent">
+                                            <p>SASS</p>
+                                            <p>90%</p>
+                                        </li>
+                                        <li class="p50 percent">
+                                            <p>JAVA</p>
+                                            <p>50%</p>
+                                        </li>
+                                        <li class="p50 percent">
+                                            <p>JQuery</p>
+                                            <p>50%</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 </body>
 </html>

@@ -46,7 +46,8 @@ body, h1, h2, p, button, img, figure, ul, li {
   padding: 0; }
 
 h1, h2 {
-  font-size: 100%; font-weight: inherit; }
+  font-size: 100%;
+  font-weight: inherit; }
 
 ul, li {
   list-style: none; }
@@ -62,12 +63,15 @@ button {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
-font-weight: inherit; }
+  font-weight: inherit; }
 
 img {
   border: none;
   vertical-align: top;
   max-width: 100%; }
+
+figure {
+  display: block; }
 
 /* common class */
 .w26 {

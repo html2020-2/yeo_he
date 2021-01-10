@@ -2,7 +2,7 @@
 
 @import "_mixin";
 
-#box_wrap{height: 100vh; background-color: yellow;display: flex;}
+#box_wrap{height: 100vh; background-color: black;display: flex;}
 #box_wrap .w26{
     #digitalBox{background-color: #100964; color: #fffabf;height: 24vh;display: flex;  
     &::after{
@@ -58,14 +58,202 @@
     .half:first-child{
         @include bgsize(cover);
         background: url("../images/index/holrogramBg.jpg") no-repeat center;position: relative;
-        p{color: #7800a0;}
+        p{color: #1800fd;}
     &::before{content: "";position: absolute;}}
     .half:last-child{
-        background-color: #7800a0;
+        background-color:#5d9eff;
         p{color: #a1ffaa;}
     }//16px=0.8vw
     }
 }
 #box_wrap .w52{
-    #portfolio{height: 71%;background-color: #1800fd;}
+    #portfolio{height: 71%;background-color: #1800fd;font-size: 1.5vw;font-family: Mot;font-weight: 800;color:#5d9eff;position: relative;letter-spacing: 0.27vw;
+    .top{height: 75%;}
+    .bottom{position: absolute; bottom: 0;height: 35%;width: 100%;
+        ul{width: 100%;height: 92%;margin-top: 5px;
+        li{
+            @include border-box;
+            width: 50%;height: 50%;border:2px solid #5d9eff;display: flex; border-collapse: collapse;
+            button{width: 100%;height: 83%;margin: auto;}
+        p{text-align: center;}
+    }
+        li:nth-child(2),li:nth-child(4){border-left: none;}
+        li:nth-child(3),li:nth-child(4){border-top: none;}
+        li:hover{color: #fff; background:#5d9eff;}
+    }
+        p{font-size: 0.6vw;color: #fff;letter-spacing: 6.25vw;text-align: center;margin-left: 5px;}
+    }
+    }
+    .card{
+        position: relative;width: 100%;height: 29vh; perspective: 100vw;
+        .front{
+            @include bgsize(cover);
+            background: url("../images/index/yoda.jpg") no-repeat center;height:  29vh;width: 100%;
+            p{position: absolute;bottom: 5%;left: 2%;font-size: 0.6vw;font-family: Mot;font-weight: 800;color: #fff;letter-spacing: 6.25vw;text-align: center;margin-left: 5px;}
+        }
+        .back{position: relative;;color: #fff;background-color: #000;height: 29vh;font-family: Mot;font-weight: 800;
+        .yoda{
+            @include bgsize(cover);
+            @include transform(translateY(-50%));
+            background: url("../images/index/yodaStiker.png") no-repeat center;width: 212px;height: 213px;position: absolute;top: 50%;left: 3%;
+        }
+        p{font-size: 1vw;letter-spacing: 0.18vw;color: #9b9b9b;}
+        .phone{position: absolute;top: 35%;left: 35%;}
+        .email{position: absolute;top: 50%;left: 42%;}
+        .contact{position: absolute;bottom: 5%;left: 2%;font-size: 0.6vw;color: #fff;letter-spacing: 6.25vw;text-align: center;margin-left: 5px;}
+        a{position: absolute;font-size: 0.73vw;color: #00ff24;bottom: 2.9vw;font-weight: 500;text-decoration: underline;}
+        .be{right:9.22vw;}
+        .insta{right: 1.93vw;}
+    }
+    & > div{
+        @include transition(all 2s);  //여기가 잘못되어 transition이어야 하는데 transform 이라도 되어 있었어요??
+        backface-visibility: hidden;position: absolute;top: 0;left: 0;
+    }
+    }
+    #ver .front{transform: rotateX(0deg);}
+    #ver:hover .front, #ver.flip .front{transform: rotateX(180deg);}
+    #ver .back{transform: rotateX(-180deg);}
+    #ver:hover .back, #ver.flip .back{transform: rotateX(0deg);}
+    }
+
+#box_wrap .w22{
+    #gradient{  //relative 추가
+        position: relative;height: 71vh;overflow: hidden;
+        .rotate{
+            transition: background-position 0.6s;
+            position: absolute;top: -100%;left: -100%;width: 300%;height: 300%;background: url("../images/index/gradient.svg") no-repeat 50% 50%; border: 1px solid red;background-size: cover;
+        } //background-size: 110%; cover라고 하면 배경 위치가 마우스에 반응하지 않고 가운데에서만 보여진다
+    }
+    #panel{
+        @include bgsize(cover);
+        position: relative;height: 29vh;background: url("../images/index/lineBg.png")no-repeat center;background-color: #000;overflow: hidden;
+        #ball{
+            @include border-radius(50%);
+            width: 1.56vw;height: 1.56vw;background-color: #fff;position: absolute;left: 70px;top: 70px;
+        }
+        .text{color:#e30613;font-size: 0.63vw;
+        p{position: absolute;bottom: 3%;}
+        .bounce{left: 2%;}
+        .the{left: 50%;}
+        .ball{right: 2%;}
+      
+    }
 }
+}
+
+.modal{
+    &:target, &.force{ 
+        @include transform(translateY(0px));
+        opacity:1;
+        animation:none;
+        .view{
+           transition:all 1s ease-in-out;
+           transform:translateY(0px);
+        }
+     }
+    /* @include transition(opacity 0.5s); */
+    position: fixed;top: 0;left: 0;width: 100%;height: 100%; opacity: 0;transition:opacity 0.5s;animation: 1s hide infinite;
+    animation-delay:0.5s;
+    
+    .background{
+        position: absolute;width: 100%;height: 100%;left: 0;top: 0;background-color: #000; opacity: 0.5;
+    }
+    .view-container{
+        .view{
+            @include transition(all 1s ease-in-out);
+            @include transform(translateY(0%));
+            position: relative;margin: 50px auto; width: 44.38vw;background: #fff;font-size: 0.63vw;border:2px solid #000;height: 44.5vw;
+         .header{font-size: 0.78vw; height: 2.24vw;background-color: #ff7800;line-height: 2.24vw;border-bottom: 2px solid #000;padding-left: 1.67vw;
+                a{
+                    @include bgsize(cover);
+                    background: url("../images/about_me/x.png") no-repeat center;width:  2.24vw;height:  2.24vw;position: absolute;right: 0;border-left: 2px solid #000;top: 0;
+                }
+            }  
+        .content{position: relative;
+            >p{font-size: 3vw;position: absolute;top: 2.2vw;left: 10%;z-index: 10;}
+            .triangle{position: absolute;top: 7.3vw;right: 9%;
+            img{width: 12.66vw;}}
+            .intro{
+                @include border-radius(22px);
+                width: 38.16vw;height: 18.41vw;border: 3px solid #ff7800;
+                position: absolute;top: 10.2vw;left: 7%;font-family: yoon;
+                div{display: inline-block;position: absolute;}
+                .haeun{width: 11.25vw;top: 1.5vw;left: 1vw;}
+                .sand{width: 12.66vw;top: 6vw;left: 12.5vw;}
+                .sky{width: 25vw;bottom: 1.3vw;right: 0.5vw;}
+                img{height: auto;max-width: 100%;vertical-align: bottom;}
+                ul{float: right; width: 24vw;height: 100%;
+                    
+                    .name{float: left;height: 100%;width: 40%;}
+                    .birth, .eMail, .tel, .introTxt{float: right;width: 60%;}
+                    li{margin-top: 0.8vw;}
+                    .section{height: 100%;
+                    li{width: 100%;}}
+                    .name, .birth{margin-top: 2.2vw;}
+                    .eMail{p+p{padding-left: 0.58vw;}}
+                    .tel{p+p{padding-left: 1.8vw;}}
+                    .introTxt{p+p{padding-left: 1.3vw;}}
+                    li>p{float: left;}
+                    li>p+p{margin-left: 1.4vw;}
+                    }                
+                }
+            } 
+            .down{position: absolute;top: 31vw;width: 100%;font-family: yoon;
+                >div{float: left;width: 100%;
+                    >div{float: left;width: 41%;padding-left: 9%;
+                        >h2{padding-bottom: 1.5vw;}
+                    }
+                }
+                .education{
+                    ul{width: 82%;
+                        li{width: 100%;}
+                        li+li{margin-top: 1.5vw;}
+                        li>p{float: left;} 
+                        p+p{margin-left: 3.13vw;}
+
+                    }
+                }
+                .do{
+                    ul{
+                        .design, .coding{width: 100%;
+                            &+li{margin-top: 1.41vw;}
+                            >p{margin-right: 0.5vw;width: 20%;}
+                            p{float: left; }
+                            ul>{float:right;width: 80%;
+                                >li{width: 100%;float: left;}
+                            }
+                         .percent{width: 1.98vw;display: inline-block;
+                        >p{width: 100%;text-align: center;}}
+                        .percent+.percent{margin-left: 0.5vw;}
+                    }
+                    .design{
+                        .p100{
+                            @include border-radius(50%);position: relative;
+                            width: 1.93vw;height: 1.98vw;background: #ff7800;
+                            p:first-child{
+                                @include transform(translateY(-80%));
+                                position: absolute;top: 50%;}
+                        p:last-child{font-size: 0.52vw;position: absolute;bottom: 0;}}
+                        .orangeTop{
+                            width: 1.93vw;
+                            img{height: auto;max-width: 100%;vertical-align: bottom;}
+                        }
+                        .p70, .p60, .p50{position: relative;
+                            p{width: 100%;text-align: center;}
+                            p:first-child{
+                            @include transform(translateY(-80%));
+                            position: absolute;top: 50%;}
+                        p:last-child{font-size: 0.52vw;position: absolute;bottom: 0;}}
+                    }
+                    
+                }
+            }
+        }   
+        }
+    }
+
+}
+
+@keyframes hide{
+    0%, 100%{transform:translateY(-100%);}
+ }
