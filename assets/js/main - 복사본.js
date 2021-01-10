@@ -5,6 +5,11 @@ $(document).ready(function () {
     var circleWid;
     var aboutY;
 
+    //그라디언트 회전
+    var wid;
+    var hei;
+    var makeSize;
+
     //공튀기기
     var _panel = $("#panel");
     var _ball = $("#ball");
@@ -75,7 +80,14 @@ $(document).ready(function () {
         circleWid = $('#aboutWrap .circle').width(); 
         aboutY = $('#aboutWrap .aboutMain').offset().top;
         //console.log(circleWid, aboutY);
-   
+
+        wid = $('#gradient').width();
+        hei = $('#gradient').height();
+    
+        makeSize = hei * 3.5;  //배경크기를 110%로 하면 4배까지~~
+        //console.log(wid, hei, makeSize);  
+        $('#gradient .rotate').css({width: makeSize, height: makeSize, top: -(makeSize-hei)*0.5, left: -(makeSize-wid)*0.5});
+    
         endX = _panel.width() - _ball.width(); //ball이 움직일수 있는 최대 위치
         endY = _panel.height() - _ball.height();
       });
@@ -102,13 +114,26 @@ $(document).ready(function () {
     });
  
   //그라디언트 회전
-  //그라디언트 회전1) 360도 회전 함수 생성
+  //그라디언트 회전1) 그라디언트 영역 내에서 마우스를 움직이면 배경이미지의 위치를 변경한다
+  $('#gradient').on('mousemove', function (e) {
+    var mouseX = e.clientX; //document 문서에서 부터 스크롤을 제외한 마우스의 좌표값
+    var mouseY = e.clientY;
+    //console.log(mouseX + ' : ' + mouseY);
+    
+    //백틱(`)을 이용하면 내부에 바로 제이쿼리를 작성할수 있다
+    //var bgPos = `${50 - (mouseX - wid*0.5) * 0.07}% ${50 - (mouseY - hei*0.5) * 0.07}%`; //#gradient가 정사각형일때
+    var bgPos = `${150 - (mouseX - wid*0.5) * 0.07}% ${30 - (mouseY - hei*0.5) * 0.07}%`; //세로로 긴 직사각형일때
+    console.log(bgPos);
+    $('.rotate').css('background-position', bgPos);
+  });
+  
+  //그라디언트 회전2) 360도 회전 함수 생성
   var timer;
   function AnimateRotate() {
     var duration= 4000;
     timer = setTimeout(function() {
       AnimateRotate();
-    }, duration);   
+    },duration);   
 
     $({deg: 0}).animate({deg: 360}, {
         duration: duration,
@@ -118,7 +143,7 @@ $(document).ready(function () {
     });
   }
 
-  //그라디언트 회전2) 그라디언트에 진입하면 회전함수를 호출하고, 빠져나오면 반복실행을 멈춘다
+  //그라디언트 회전3) 그라디언트에 진입하면 회전함수를 호출하고, 빠져나오면 반복실행을 멈춘다
   $('#gradient').on({
     mouseenter: function () {
       AnimateRotate();
@@ -164,3 +189,10 @@ $(document).ready(function () {
     }
 });
 
+/* var modal = document.querySelector('#modal');
+setTimeout(function(){
+   modal.classList.add('force');
+}, 2000);
+setTimeout(function(){
+   modal.classList.remove('force');
+}, 3000); */

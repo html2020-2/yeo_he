@@ -285,10 +285,10 @@
   #box_wrap .w22 #gradient .rotate {
     transition: background-position 0.6s;
     position: absolute;
-    top: -100%;
-    left: -100%;
-    width: 300%;
-    height: 300%;
+    top: -125%;
+    left: -125%;
+    width: 350%;
+    height: 350%;
     background: url("../images/index/gradient.svg") no-repeat 50% 50%;
     border: 1px solid red;
     background-size: cover; }

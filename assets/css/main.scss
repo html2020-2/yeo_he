@@ -121,8 +121,8 @@
         position: relative;height: 71vh;overflow: hidden;
         .rotate{
             transition: background-position 0.6s;
-            position: absolute;top: -100%;left: -100%;width: 300%;height: 300%;background: url("../images/index/gradient.svg") no-repeat 50% 50%; border: 1px solid red;background-size: cover;
-        } //background-size: 110%; cover라고 하면 배경 위치가 마우스에 반응하지 않고 가운데에서만 보여진다
+            position: absolute;top: -125%;left: -125%;width: 350%;height: 350%;background: url("../images/index/gradient.svg") no-repeat 50% 50%; border: 1px solid red;background-size: cover;
+        } 
     }
     #panel{
         @include bgsize(cover);
