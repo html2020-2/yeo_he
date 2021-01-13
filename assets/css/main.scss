@@ -2,7 +2,7 @@
 
 @import "_mixin";
 
-#box_wrap{height: 100vh; background-color: yellow;display: flex;}
+#box_wrap{height: 100vh; background-color: black;display: flex;}
 #box_wrap .w26{
     #digitalBox{background-color: #100964; color: #fffabf;height: 24vh;display: flex;  
     &::after{
@@ -54,18 +54,503 @@
     .half{width: 50%;height: 100%;position: relative;
         p{
             @include transform(translate(-50%, -50%));
-           position: absolute;top: 50%;left: 50%;text-align: center;}}
+           position: absolute;top: 50%;left: 50%;text-align: center;}
+           .box2{width: 3.18vw;height: 3.91vw;right: 0.8vw;bottom: 1vw;}
+           .square{position: absolute;
+            img{height: auto;max-width: 100%;vertical-align: bottom;}
+        }}
     .half:first-child{
         @include bgsize(cover);
         background: url("../images/index/holrogramBg.jpg") no-repeat center;position: relative;
-        p{color: #7800a0;}
+        p{color: #1800fd;}
     &::before{content: "";position: absolute;}}
     .half:last-child{
-        background-color: #7800a0;
+        background-color:#5d9eff;
         p{color: #a1ffaa;}
+        .halfLine{width: 10.36vw;height: 0.36vw;position: absolute;right: 1.46vw;
+            img{height: auto;max-width: 100%;vertical-align: bottom;}
+        }
+        .lineTop{top: 0.94vw;}
+        .lineDown{bottom: 1.73vw;}
+        
+       
+        .box3{height: 3.91vw;width: 3.91vw;top: 0.42vw;left: 0.42vw;cursor: e-resize;}
     }//16px=0.8vw
     }
 }
 #box_wrap .w52{
-    #portfolio{height: 71%;background-color: #1800fd;}
+    #portfolio{height: 71%;background-color: #1800fd;font-size: 1.5vw;font-family: Mot;font-weight: 800;color:#5d9eff;position: relative;letter-spacing: 0.27vw;
+    .top{height: 75%;}
+    .bottom{position: absolute; bottom: 0;height: 35%;width: 100%;
+        ul{width: 100%;height: 92%;margin-top: 5px;
+        li{
+            @include border-box;
+            width: 50%;height: 50%;border:2px solid #5d9eff;display: flex; border-collapse: collapse;
+            button{width: 100%;height: 83%;margin: auto;}
+        p{text-align: center;}
+    }
+        li:nth-child(2),li:nth-child(4){border-left: none;}
+        li:nth-child(3),li:nth-child(4){border-top: none;}
+        li:hover{color: #fff; background:#5d9eff;}
+    }
+        p{font-size: 0.6vw;color: #fff;letter-spacing: 6.25vw;text-align: center;margin-left: 5px;}
+    }
+    }
+    .card{
+        position: relative;width: 100%;height: 29vh; perspective: 100vw;z-index: 10;
+        .front{
+            @include bgsize(cover);
+            background: url("../images/index/yoda.jpg") no-repeat center;height:  29vh;width: 100%;
+            p{position: absolute;bottom: 5%;left: 2%;font-size: 0.6vw;font-family: Mot;font-weight: 800;color: #fff;letter-spacing: 6.25vw;text-align: center;margin-left: 5px;}
+        }
+        .back{position: relative;;color: #fff;background-color: #000;height: 29vh;font-family: Mot;font-weight: 800;
+        .yoda{
+            @include bgsize(cover);
+            @include transform(translateY(-50%));
+            background: url("../images/index/yodaStiker.png") no-repeat center;width: 212px;height: 213px;position: absolute;top: 50%;left: 3%;
+        }
+        p{font-size: 1vw;letter-spacing: 0.18vw;color: #9b9b9b;}
+        .phone{position: absolute;top: 35%;left: 35%;}
+        .email{position: absolute;top: 50%;left: 42%;}
+        .contact{position: absolute;bottom: 5%;left: 2%;font-size: 0.6vw;color: #fff;letter-spacing: 6.25vw;text-align: center;margin-left: 5px;}
+        a{position: absolute;font-size: 0.73vw;color: #00ff24;bottom: 2.9vw;font-weight: 500;text-decoration: underline;}
+        .be{right:9.22vw;}
+        .insta{right: 1.93vw;}
+    }
+    & > div{
+        @include transition(all 2s);  //여기가 잘못되어 transition이어야 하는데 transform 이라도 되어 있었어요??
+        backface-visibility: hidden;position: absolute;top: 0;left: 0;
+    }
+    }
+    #ver .front{transform: rotateX(0deg);}
+    #ver:hover .front, #ver.flip .front{transform: rotateX(180deg);}
+    #ver .back{transform: rotateX(-180deg);}
+    #ver:hover .back, #ver.flip .back{transform: rotateX(0deg);}
+    }
+
+#box_wrap .w22{
+    #gradient{  //relative 추가
+        position: relative;height: 71vh;overflow: hidden;
+        .rotate{
+            transition: background-position 0.6s;
+            position: absolute;top: -125%;left: -125%;width: 350%;height: 350%;background: url("../images/index/gradient.svg") no-repeat 50% 50%; border: 1px solid red;background-size: cover;
+        } 
+    }
+    #panel{
+        @include bgsize(cover);
+        position: relative;height: 29vh;background: url("../images/index/lineBg.png")no-repeat center;background-color: #000;overflow: hidden;
+        #ball{
+            @include border-radius(50%);
+            width: 1.56vw;height: 1.56vw;background-color: #fff;position: absolute;left: 70px;top: 70px;
+        }
+        .text{color:#e30613;font-size: 0.63vw;
+        p{position: absolute;bottom: 3%;}
+        .bounce{left: 2%;}
+        .the{left: 50%;}
+        .ball{right: 2%;}
+      
+    }
+}
+}
+
+.modal{
+    position: fixed;top: 0;left: 0;width: 100%;height: 100%; visibility: hidden;opacity: 0;z-index: 200;
+    
+    .background{
+        position: fixed;width: 100%;height: 100%;left: 0;top: 0;background-color: #000; opacity: 0.5;
+    }
+    .view-container{
+        .view{
+            @include transition(all 1s ease-in-out);
+            @include transform(translateY(0%));
+            position: relative;margin: 50px auto; width: 44.38vw;background: #fff;font-size: 0.63vw;border:2px solid #000;height: 44.5vw;
+            .header{font-size: 0.78vw; height: 2.24vw;background-color: #ff7800;line-height: 2.24vw;border-bottom: 2px solid #000;padding-left: 1.67vw;}  
+            .content{position: relative;
+                >p{font-size: 3vw;position: absolute;top: 2.2vw;left: 10%;z-index: 10;}
+                .triangle{position: absolute;top: 7.3vw;right: 9%;
+                img{width: 12.66vw;}}
+                .intro{
+                    @include border-radius(22px);
+                    width: 38.16vw;height: 18.41vw;border: 3px solid #ff7800;
+                    position: absolute;top: 10.2vw;left: 7%;font-family: yoon;
+                    div{display: inline-block;position: absolute;}
+                    .haeun{width: 11.25vw;top: 1.5vw;left: 1vw;}
+                    .sand{width: 12.66vw;top: 6vw;left: 12.5vw;}
+                    .sky{width: 25vw;bottom: 1.3vw;right: 0.5vw;}
+                    img{height: auto;max-width: 100%;vertical-align: bottom;}
+                    ul{float: right; width: 24vw;height: 100%;
+                        
+                        .name{float: left;height: 100%;width: 40%;}
+                        .birth, .eMail, .tel, .introTxt{float: right;width: 60%;}
+                        li{margin-top: 0.8vw;}
+                        .section{height: 100%;
+                        li{width: 100%;}}
+                        .name, .birth{margin-top: 2.2vw;}
+                        .eMail{p+p{padding-left: 0.58vw;}}
+                        .tel{p+p{padding-left: 1.8vw;}}
+                        .introTxt{p+p{padding-left: 1.3vw;}}
+                        li>p{float: left;}
+                        li>p+p{margin-left: 1.4vw;}
+                        }                
+                    }
+            } 
+            .down{position: absolute;top: 31vw;width: 100%;font-family: yoon;
+                >div{float: left;width: 100%;
+                    >div{float: left;width: 41%;padding-left: 9%;
+                        >h2{padding-bottom: 1.5vw;}
+                    }
+                }
+                .education{
+                    ul{width: 82%;
+                        li{width: 100%;}
+                        li+li{margin-top: 1.5vw;}
+                        li>p{float: left;} 
+                        p+p{margin-left: 3.13vw;}
+
+                    }
+                }
+                    .do{
+                        ul{
+                            .design, .coding{width: 100%;
+                                &+li{margin-top: 1.41vw;}
+                                >p{margin-right: 0.5vw;width: 20%;}
+                                p{float: left; }
+                                ul>{float:right;width: 80%;
+                                    >li{width: 100%;float: left;}
+                                }
+                            .percent{width: 1.98vw;display: inline-block;
+                            >p{width: 100%;text-align: center;}}
+                            .percent+.percent{margin-left: 0.5vw;}
+                        }
+                        .design{width: 100%;
+                            .p50{float: right;margin-top: 0.6vw;}
+                            
+                        }
+                        .Max{margin-right: 1.3vw;}
+                       /*  .design{
+                            .p100{position: relative;
+                                width: 1.93vw;height: 1.98vw;
+                                p:first-child{
+                                    @include transform(translateY(-80%));
+                                    position: absolute;top: 50%;}
+                            p:last-child{font-size: 0.52vw;position: absolute;bottom: 0;}}
+                            .p70, .p60, .p50{position: relative;
+                                p{width: 100%;text-align: center;}
+                                p:first-child{
+                                @include transform(translateY(-80%));
+                                position: absolute;top: 50%;}
+                            p:last-child{font-size: 0.52vw;position: absolute;bottom: 0;}}
+                        }
+                         */
+                    }
+                }
+            } 
+            .class{
+                @include bgsize(cover);
+                background: url("../images/about_me/x.png") no-repeat center;width:  2.24vw;height:  2.24vw;position: absolute;right: 0;border-left: 2px solid #000;top: 0;
+            }  
+        } //.view
+    }
+
+}
+
+@keyframes hide{
+    0%, 100%{transform:translateY(-100%);}
+ }
+
+.pjModal{z-index: 200;
+    position: fixed;top: 0;left: 0;width: 100%;height: 100%; visibility: hidden;opacity: 0;
+    .vans-container{
+        .vansView{
+            @include transition(all 1s ease-in-out);
+            @include transform(translateY(0%));
+            position:fixed;z-index: 300;top: 0;left: 0;width: 100%;
+            .headerVans{
+                @include border-box;
+                height: 6.57vh;width: 100%;font-size: 1.56vw;color: #1800fd;line-height: 6.57vh;background: #fff;border: 3px solid #000;z-index: 400;
+                h2{margin-left: 1.5vw;display: inline-block;}
+            }
+            .bottomVans{
+                @include border-box;
+                position:fixed;top: 88.89vh;left: 0;border: 3px solid #000;height: 11.11vh;width: 100%;background: #fff;z-index: 400;
+                
+                >div{position: relative;
+                    .controler{width: 30%;position: absolute;top: 1.04vw;right: 1.2vw;
+                        .prev, .next{
+                            @include bgsize(cover);
+                            height: 7.41vh;
+                            img{height: auto;max-width: 100%;vertical-align: bottom;}
+                        }
+                        .prev{width: 7.41vh;float: left;}
+                        .next{width: 24.44vh;float: right;}
+                    }
+                    .indicator{
+                    width: 65%;position: absolute;top: 1.04vw;left: 1.2vw;
+                        ul{height: 4.32vw;width: 100%;position: relative;
+                            li{
+                                float: left;height: 7.41vh;padding-right:0.73vw;
+                                button{vertical-align: top;width: 100%;
+                                .txt{font-size: 1.56vw;opacity: 0;line-height: 7.41vh;text-align: center;position: absolute;top: 0;right: 0;
+                                
+                            }
+                                .icon{
+                                    @include border-box;
+                                    @include border-radius(50%);
+                                    position: relative;width: 7.41vh;float: left; border: 3px solid #000;height: 7.41vh;
+                                    &::before{
+                                        @include border-radius(50%);
+                                        @include transform(0.5s);
+                                        content: "";position: absolute;width: 0;height: 0;background: #000;text-align: center;}
+                                }
+                                
+                            }
+                        }
+
+
+                    }
+                    ul li.on .icon:before{
+                        @include transform(translate(-50%, -50%));
+                        top: 50%;left: 50%;width: 70%;height: 70%;
+                    }
+                    ul li.on .txt{
+                        @include transform(0.5s);
+                        opacity: 1;}
+               }
+            }      
+    }
+            .pjContainer, .pjContainer .vansCnt_wrap, .pjContainer .vansCnt_wrap section{height: 100%;background: #fff;}
+            .pjContainer{width: 100%;overflow: hidden;
+                .vansCnt_wrap{height: 82.32vh;
+                    section{float: left;padding-top: 3.7vw;padding-bottom: 6.25vw;/* border-left: 3px solid #000;border-right:3px solid #000; */
+                    /* .vansTits, .vansSmallTits{position: absolute;font-family: yoon;left: 5.63vw;}
+                    .vansTits{top:7.34vw;font-size: 1.88vw;}
+                    .vansSmallTits{top:9.32vw;font-size: 1.04vw; padding-top: 0.31vw;} */
+            }
+        }
+                    #vansCnt1{width: 100%;position: relative;color: #1800fd;background: #fff;
+                    h2{
+                    @include transform(skew(-30deg, -6deg) translateX(-50%));
+                    position: absolute;top: 6.5vw;left: 50%;font-size: 3.65vw;text-align: right;
+                    }
+                    p{
+                    @include transform(skew(-30deg, -6deg) );
+                    position: absolute;font-size: 1.15vw;font-family: Mot;font-weight: 500;}
+                    .vansPcDrop{position: absolute;top: 0;left: 0;width: 33.13vw;height: 46.41vw;
+                        img{height: auto;max-width: 100%;vertical-align: bottom;}
+                    }
+                    .vansMoblieDrop{position: absolute;top: 0;right: 0;width: 26.41vw;height: 46.3vw;
+                        img{height: auto;max-width: 100%;vertical-align: bottom;}
+                    }
+                    .period{top: 24vw;left: 60%;}
+                    .index{top: 28vw;left: 58%;}
+                    .lineSkew{ position: absolute;width: 28.65vw;height: 4.01vw;top: 26vw;left: 25%;
+                    img{height: auto;max-width: 100%;vertical-align: bottom;}
+                    }
+                    .bgCircle{
+                        @include border-radius(50%);
+                        @include transform(translateX(-50%));
+                        background: #fff000;width: 45vw;height: 18vw;position: absolute;top: 14vw;left: 50%;
+                    }
+                    }
+                    #vansCnt2{width: 100%;position: relative;
+                        .vansTits, .vansSmallTits, .plain{position: absolute;font-family: yoon;left: 5.63vw;}
+                        .vansTits{top:4.34vw;font-size: 1.88vw;}
+                        .vansSmallTits{top:6.32vw;font-size: 1.04vw; padding-top: 0.31vw;}
+                        .plain{font-size: 0.7vw;top: 10.2vw;}
+                        .shoeWrap{width: 40%;float: left;position: absolute;left: 5.63vw;top: 19vw;
+                        li{ width: 50%;
+                            img{height: auto;max-width: 100%;vertical-align: bottom;}
+                            .whiteEra{height: 6.04vw;width: 15.68vw;}
+                            .whiteslip-on{height: 6.35vw;width: 15.31vw;}
+                            .era{width: 14.38vw;height: 9.58vw;}
+                            .slip-on{width: 15vw;height: 7.6vw;}
+                            .era, .slip-on{padding-top: 4.17vw;}
+                        }
+                    }
+                        .pointer{width: 12.34vw;height: 1.04vw;position: absolute;top: 9.5vw;left: 39.06vw;
+                            img{height: auto;max-width: 100%;vertical-align: bottom;}
+                        }
+                        .cnt2Right{width: 60%;
+                        >div{width: 24.53vw;height: 43.23vw;top:9.32vw;border:3px solid #000;margin-left: 25%;
+                            img{height: auto;max-width: 100%;vertical-align: bottom;}
+                        }
+                        .cnt2Plain{position: absolute;top: 4vw;right: 0;width: 22%;font-family: 'yoon';font-size: 0.83vw;margin-top: 0.3vw;
+                            li {width: 100%;
+                                >p{width: 7.86vw;float: right;position: absolute;top: 6vw;right: 6vw;}
+                                div{width: 100%;
+                                    .subLine{float: left;width: 5.26vw;border: 1px solid #000;}
+                                p{color: #fff;text-align: center;line-height: 1.56vw;float: left;background: #000;width: 1.56vw;height: 1.56vw;position: absolute;left: 5vw;}
+                                p:first-child{top: -0.1vw;}
+                            }
+                            .customPic{position: absolute;left: 8vw;border: 3px solid #000;width: 7.86vw;height: 4.58vw;
+                                img{height: auto;max-width: 100%;vertical-align: bottom;}
+                            }  
+                        }
+                            .cntTwoTwo{
+                                >div{position: absolute;
+                                    top: 20vw;}
+                                    >p{position: absolute;top: 20vw;}
+                            }
+                        }
+                        }                    
+                    }
+                    #vansCnt3{width: 100%;position: relative;
+                        .vansTits, .vansSmallTits, .plain,.plain2{position: absolute;font-family: yoon;left: 5.63vw;}
+                        .vansTits{top:4.34vw;font-size: 1.88vw;}
+                        .vansSmallTits{top:6.32vw;font-size: 1.04vw; padding-top: 0.31vw;}
+                        .plain{font-size: 0.7vw;top: 10.2vw;}
+                        .plain2{font-size: 0.7vw;top: 10.2vw;}
+                        .cnt3CollecionPic{width: 25.11vw;height: 16.11vw;top: 21vw;left: 5.63vw;position: absolute;
+                            img{height: auto;max-width: 100%;vertical-align: bottom;}
+                    }
+                        .pointer{width: 12.34vw;height: 1.04vw;position: absolute;top: 9.5vw;left: 39.06vw;
+                            img{height: auto;max-width: 100%;vertical-align: bottom;}
+                    }
+                    .cnt3Right{width: 60%;
+                        >div{width: 24.53vw;height: 43.23vw;top:9.32vw;border:3px solid #000;margin-left: 25%;
+                            img{height: auto;max-width: 100%;vertical-align: bottom;}
+                        }
+                        .cnt3Plain{position: absolute;top: 4vw;right: 0;width: 22%;font-family: 'yoon';font-size: 0.83vw;margin-top: 0.3vw;
+                            li {width: 100%;
+                                >p{width: 7.86vw;float: right;position: absolute;top: 0;right: 6vw;}
+                                div{width: 100%;
+                                    .subLine{float: left;width: 5.26vw;border: 1px solid #000;}
+                                p{color: #fff;text-align: center;line-height: 1.56vw;float: left;background: #000;width: 1.56vw;height: 1.56vw;position: absolute;left: 5vw;word-break: keep-all}
+                                p:first-child{top: -0.1vw;}
+                            } 
+                        }
+                            .cnt3Two{
+                                >div{position: absolute;
+                                    top: 29vw;}
+                                    >p{position: absolute;top: 29vw;}
+                            }
+                        }
+                }
+                    }
+                    #vansCnt4{width: 100%;position: relative;font-family: yoon;
+                        .vansTits, .vansSmallTits,.visualIdentity{position: absolute;left: 5.63vw;}
+                        .vansTits{top:2.34vw;font-size: 1.88vw;}
+                        .vansSmallTits{top:4.32vw;font-size: 1.04vw; padding-top: 0.31vw;}
+                        .visualIdentity{top: 7.5vw;
+                            h3{font-size: 1.25vw;
+                                padding-bottom: 0.6vw;}
+                            p{font-size: 0.73vw;}
+                            p+p{padding-top: 0.4vw;}
+                        }
+                        .element{position: absolute; left: 30vw;top: 7.5vw;height: 100%;
+                        li{
+                            h3{font-size: 1.25vw;}
+                            p{font-size: 0.73vw;}
+                            p+p{padding-top: 0.4vw;}
+                            >p{padding-top: 1vw;}
+                            .infoLine{border: 1px solid #000;width: 38.56vw;}
+                            }
+                            .ill{margin-top: 3vw;}
+                            .graffi{margin-top: 7vw;}
+                            .colors{margin-top: 2vw;
+                            .colorChip{
+                                position: absolute;width: 100%;top: 28.3vw;left: 13vw;
+                                li{
+                                    width: 4.17vw;height: 1.04vw;border: 1.5px solid #000;
+                                &:first-child{background: #000;}
+                                &:nth-child(2){background: #fff;}
+                                &:nth-child(3){background: #1800fd;}
+                                &:nth-child(4){
+                                    background: #00ff00;
+                                }
+                                &:last-child{
+                                    background: #ff0000;
+                                } 
+                            }
+                                li+li{margin-left: 1.04vw;}
+                               
+                            }
+                        }
+
+
+                        }
+                        .cnt4Pc{width: 21.53vw;height: 55.83vw;position: absolute;top: 0;right: 8.85vw;
+                            img{height: auto;max-width: 100%;vertical-align: bottom;}
+                        }
+                    }
+                    #vansCnt5{width: 100%;position: relative;font-family: yoon;
+                        .vansTits, .vansSmallTits,p{position: absolute;left: 5.63vw;}
+                        .vansTits{top:2.34vw;font-size: 1.88vw;}
+                        .vansSmallTits{top:4.32vw;font-size: 1.04vw; padding-top: 0.31vw;}
+                        .plain{font-size: 0.7vw;top: 10.2vw; padding-top: 0.31vw;}
+                        .cnt5Pc{position: absolute;left: 39.10vw;top: 0;height: 56.25vw;width: 35.57vw;
+                        img{height: auto;max-width: 100%;vertical-align: bottom;}}
+                        .framePc{
+                            @include border-radius(27px);
+                            border: 3px solid #000;position: absolute;top: 11.68vw;left: 39.10vw;width: 35.57vw;height: 20.26vw;}
+                        .cnt5Moblie{position: absolute;left: 77.47vw;top: 0;width: 14.38vw;height: 46.3vw;
+                            img{height: auto;max-width: 100%;vertical-align: bottom;}
+                        }
+                        .frameM{ @include border-radius(29px);
+                            border: 3px solid #000;position: absolute;top: 2.4vw;left: 77.4vw;width: 14.17vw;height: 26.09vw;}
+    
+                    }
+                    #vansCnt6{width: 100%;position: relative;font-family: yoon;z-index: 350;
+                        >div{width: 30%;
+                            .vansTits, .vansSmallTits,.pGroup{position: absolute;left: 5.63vw;}
+                        .vansTits{top:2.34vw;font-size: 1.88vw;}
+                        .vansSmallTits{top:4.32vw;font-size: 1.04vw; padding-top: 0.31vw;}
+                        .pGroup{font-size: 0.7vw;bottom: 12vw ;padding-top: 0.31vw;word-break: keep-all;
+                            p{line-height: 1.56vw;}
+                            p+p{padding-top: 1.6vw;}
+                        }
+                    }
+                    .codingWrap{width: 70%;position: absolute;left: 38vw;
+                        ul{width: 100%;position: absolute;top: -1vw;left: 10vw;
+                            li{position: absolute;
+                                p{font-size: 0.7vw;position: absolute;left: 0;}
+                            >div{position:absolute;left: 0;
+                                img{height: auto;max-width: 100%;vertical-align: bottom;}
+                            }
+                        }
+                        li:first-child{
+                            p{top: 0vw;}
+                            >div{width: 49.16vw;height: 14.58vw;position: absolute;left: -0.5vw;}
+                        }
+                        li:nth-child(2){
+                            top: 12.5vw;
+                            p{top: 0vw;}
+                            >div{width: 47.39vw;height: 13.7vw;}
+                        }
+                        li:last-child{
+                            top: 26vw;
+                            p{top: 0vw;}
+                            >div{width: 47.39vw;height: 12.34vw;}
+                            }
+                        }
+                    }
+                }
+                #vansCnt7{width: 100%;position: relative;    font-family: yoon;
+                    .vansCnt7Bg{overflow: hidden;
+                        p{
+                            @include transform(rotate(-10deg));
+                            position: absolute;font-size: 1.56vw;
+                        }
+                        p:nth-child(1){top: -9vw;left: -2vw;}
+                        p:nth-child(2){top: 4vw;left: -2vw;}
+                        p:nth-child(3){width: 110%;top: 30vw;}
+                        p:nth-child(4){top: 45vw;left: 2vw;width: 110%;}
+                        p:nth-child(5){top: -1vw;left: -2vw;width: 110%;}
+                    }
+                    .macbook{
+                        @include transform(translate(-50%, -50%));
+                        position: absolute;top: 44%;left: 50%;width: 58.11vw;height: 36.46vw;
+                        img{height: auto;max-width: 100%;vertical-align: bottom;}
+                    }
+                    a{@include transform(translate(-50%, -50%));
+                        position: absolute;top: 50%;left: 50%;font-size: 1.56vw;background: #fff;border: 3px solid #000;width: 11.67vw;height: 3.28vw;line-height: 3.28vw;text-align: center;}
+                    a:hover, a.focus{background: #000;color: #fff}
+                }
+}
+        .class2{
+            @include bgsize(cover);
+            background: url("../images/about_me/x.png") no-repeat center;position: absolute;right: 0;border-left: 3px solid #000;top: 0;width:6.57vh;height: 6.57vh;
+        }
+}
+}
 }

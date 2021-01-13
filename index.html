@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <script src="assets/js/jquery-1.12.4.min.js"></script>
     <script src="assets/js/jquery-ui.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/main2.js"></script>
 </head>
 <body>
     <div id="box_wrap">
@@ -20,36 +21,51 @@
                 <h2 class="blind-b">현재 시간을 알려주는 디지털 시계</h2>
                 <div id="digital"></div>
             </div>
-            <div id="aboutWrap">
-                <div class="tit p_r">
-                    <h2>
-                        <span class="p_a">ABOUT</span> <span class="p_a">ME</span>
-                    </h2>
-                </div>  
-                <div class="aboutMain p_r">
-                    <!-- 세로라인, 가로라인, .circle 원이미지 처리
-
-                        alt="겹쳐진 타원 두개" 는 스크린리더에서 읽어줄 필요 없는 장식 이랍니다
-                    -->
-                    <div class="verline line"></div>
-                    <div class="horline line"></div>
-                    <div class="circle"><img src="assets/images/index/focus.png" alt=""></div>
-                    
-                    <img class="f_c" src="assets/images/index/smile_before.png" alt="">
-                    <a href="" class="smile"><img src="assets/images/index/smile.png" alt="About"></a>
-                    <img class="l_c" src="assets/images/index/smile_after.png" alt="">
-                </div>
+            <div id="aboutWrap" >
+                <div class="tit p_r" >
+                        <h2>
+                            <span class="p_a">ABOUT</span>
+                            <span class="p_a">ME</span>
+                        </h2>
+                    </div>  
+                    <div class="aboutMain p_r">
+                        <!-- 세로라인, 가로라인, .circle 원이미지 처리
+    
+                            alt="겹쳐진 타원 두개" 는 스크린리더에서 읽어줄 필요 없는 장식 이랍니다
+                        -->
+                        <div class="verline line"></div>
+                        <div class="horline line"></div>
+                        <div class="circle"><img src="assets/images/index/focus.png" alt=""></div>
+                        
+                        <img class="f_c" src="assets/images/index/smile_before.png" alt="">
+                        <button type="button" data-target="#modal" class="smile"><img src="assets/images/index/smile.png" alt="About"></button>
+                        <img class="l_c" src="assets/images/index/smile_after.png" alt="">
+                    </div>
                 <div class="position">
                 </div>
             </div>
             <div class="clearfix" id="moveSection">
-                <div class="f_l half">
-                    <div class="square box1"></div>
+                <div class="f_l half twinkle">
                     <p>move<br><br>Free</p>
+                    <div class="square box1" id="box1">
+                     </div>
+                     <div class="square box2" id="box2">
+                         <img src="assets/images/index/portfolio1.png" alt="">
+                     </div>
                 </div>
-                <div class="f_r half">
-                    <div class="square box2"></div>
+                <div class="f_r half lightGreen">
                     <p>move<br><br>to line</p>
+                    <div class="lineTop halfLine">
+                        <img src="assets/images/index/pointer_right.png" alt="">
+                    </div>
+                    <div class="lineDown halfLine">
+                        <img src="assets/images/index/pointer_left.png" alt="">
+                    </div>
+                    <div class="square box3" id="box3">
+                        <img src="assets/images/index/2020.png" alt="">
+                    </div>
+                    <div class="square box4" id="box4"></div>
+                    
                 </div>
             </div>
         </div>
@@ -60,15 +76,16 @@
                     <img src="assets/images/index/work.png" alt="작업물">
                 </div>
                 <div class="bottom clearfix">
+                    <p>CHOOSE!!</p>
                     <ul>
                         <li class="f_l half">
-                            <button type="button" >GRAPIC DESIGN</button>
+                            <button type="button" data-target="#vansModal" class="vansRenewal">VANS RENEWAL</button>
                         </li>
                         <li class="f_r half">
-                            <button type="button" >UXUI DESIGN</button>
+                            <button type="button" >DAN PROJECT</button>
                         </li>
                         <li class="f_l half">
-                            <button type="button" >MOTION GRAPIC</button>
+                            <button type="button" >GRAPIC DESIGN</button>
                         </li>
                         <li class="f_l half">
                             <button type="button" >PHOTO</button>
@@ -78,16 +95,15 @@
             </div>
             <div class="card" id="ver">
                 <div class="front">
-                    <figure><img src="assets/images/index/yoda.jpg" alt="요다"></figure>
                     <p>CONTACT?</p>
                 </div>
                 <div class="back">
-                    <img src="assets/images/index/yodaStiker.png" alt="요다스티커">
-                    <p>010 6338 5514</p>
-                    <p>gkdmsdlwkd@gmail.com</p>
-                    <a href="">behance</a>
-                    <a href="">instagram</a>
-                    <p>CONTACT!</p>
+                    <div class="yoda"></div>
+                    <p class="phone">010 6338 5514</p>
+                    <p class="email">gkdmsdlwkd@gmail.com</p>
+                    <a href="" class="be">behance</a>
+                    <a href="" class="insta">instagram</a>
+                    <p class="contact">CONTACT!</p>
                 </div>
             </div>
         </div>
@@ -97,8 +113,460 @@
             </div>
             <div class="box" id="panel">
             <div id="ball"></div>
+            <div class="text">
+                <p class="bounce">BOUNCE</p>
+                <p class="the">THE</p>
+                <p class="ball">BALL</p>
+            </div>
             </div>
         </div>
+    </div>
+    <div class="modal" id="modal">
+        <div class="background"></div>
+        <div class="view-container">
+            <div class="view">
+                <div class="header">
+                    <p>about me</p>
+                </div>
+                <div class="content clearfix">
+                    <p>Hi! My name is<br>Yeo Ha Eun!</p>
+                    <div class="triangle"><img src="assets/images/about_me/triangle.png" alt=""></div>
+                    <div class="intro clearfix">
+                        <h2 class="blind-b">simple introduction myself</h2>
+                            <div class="haeun">
+                                <img src="assets/images/about_me/me.png" alt="여하은">
+                            </div>
+                            <div class="sand">
+                                <img src="assets/images/about_me/likeToo.png" alt="모래사장">
+                            </div>
+                            <div class="sky">
+                                <img src="assets/images/about_me/nature.png" alt="파란하늘">
+                            </div>
+                        <ul>
+                            <li class="name">
+                                <p>이름</p>
+                                <p>여하은</p>
+                            </li>
+                            <div class="section">
+                                <li class="birth">
+                                    <p>생년월일</p>
+                                    <p>1998.01.15</p>
+                                </li>
+                                <li class="eMail">
+                                    <p>e-mail</p>
+                                    <p>gkdmsdlwkd@gmail.com</p>
+                                </li>
+                                <li class="tel">
+                                    <p>tel</p>
+                                    <p>010-6338-5514</p>
+                                </li>
+                                <li class="introTxt">
+                                    <p>소개</p>
+                                    <p>all-rounder uxui designer가<br> 되고자 노력하는 여하은이라고<br>합니다. 잘 부탁드립니다 :)</p>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="down clearfix">
+                        <div>
+                            <div class="education">
+                                <h2>EDUCATION</h2>
+                                <ul>
+                                    <li class=" clearfix">
+                                        <p>2023</p>
+                                        <p>성신여자대학교 산업디자인학과 졸업</p>
+                                    </li>
+                                    <li class=" clearfix">
+                                        <p>2021</p>
+                                        <p>한국디지털기업협회 uxui 기반<br>반응형 웹퍼블리셔 훈련과정 이수</p>
+                                    </li>
+                                    <li class=" clearfix">
+                                        <p>2018</p>
+                                        <p>경기예술고등학교 미술과 졸업</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="do">
+                                <h2>I CAN DO</h2>
+                                <ul>
+                                    <li class="clearfix design">
+                                        <p>DESIGN</p>
+                                        <ul>
+                                            <li class="p100 percent">
+                                                <p>AI</p>
+                                                <p>100%</p>
+                                            </li>
+                                            <li class="p100 percent">
+                                                <p>PS</p>
+                                                <p>100%</p>
+                                            </li>
+                                            <li class="p70 percent">
+                                               <p>AE</p>
+                                                <p>70%</p>
+                                            </li>
+                                            <li class="p70 percent">
+                                                <p>XD</p>
+                                                <p>70%</p>
+                                            </li>
+                                            <li class="p60 percent">
+                                                <p>ID</p>
+                                                <p>60%</p>
+                                            </li>
+                                            <li class="p50 percent Max">
+                                                <p>3D MAX</p>
+                                                <p>50%</p>
+                                            </li>
+                                            <li class="p50 percent">
+                                                <p>CINEMA 4D</p>
+                                                <p>50%</p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="coding">
+                                        <p>CODING</p>
+                                        <ul class="clearfix">
+                                            <li class="p90 percent">
+                                                <p>HTML</p>
+                                                <p>90%</p>
+                                            </li>
+                                            <li class="p90 percent">
+                                                <p>CSS</p>
+                                                <p>90%</p>
+                                            </li>
+                                            <li class="p90 percent">
+                                                <p>SASS</p>
+                                                <p>90%</p>
+                                            </li>
+                                            <li class="p50 percent">
+                                                <p>JAVA</p>
+                                                <p>50%</p>
+                                            </li>
+                                            <li class="p50 percent">
+                                                <p>JQuery</p>
+                                                <p>50%</p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="class">
+                    <span class="blind-b">close</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="vansModal pjModal" id="vansModal">
+        <div>
+            <div class="vans-container pj-container">
+                <div class="vansView pjView">
+                    <div class="headerVans">
+                        <h2>VANS RENEWAL PROJECT</h2>
+                    </div>
+                    <div class="bottomVans">
+                        <div>
+                            <div class="indicator" id="vansIndicator">
+                                <ul>
+                                    <li>
+                                        <button class="first" type="button" data-href="#vanCnt1">
+                                            <span class="txt">VANS INTRO</span>
+                                            <span class="icon"></span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" data-href="#vanCnt2">
+                                            <span class="txt">VANS ADVANTAGE</span>
+                                            <span class="icon"></span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" data-href="#vanCnt3">
+                                            <span class="txt">VANS ADVANTAGE</span>
+                                            <span class="icon"></span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" data-href="#vanCnt4">
+                                            <span class="txt">DESIGN CONCEPT</span>
+                                            <span class="icon"></span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" data-href="#vanCnt5">
+                                            <span class="txt">RESPONSIVE WEB</span>
+                                            <span class="icon"></span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" data-href="#vanCnt6">
+                                            <span class="txt">ACCESSIBILITY</span>
+                                            <span class="icon"></span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" data-href="#vanCnt7">
+                                            <span class="txt">VIEW PAGE</span>
+                                            <span class="icon"></span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="controler">
+                                <div>
+                                    <button type="button" class="prev">
+                                        <img src="assets/images/uxui/VANS/left.png" onmouseover="this.src='assets/images/uxui/VANS/leftHover.png';"
+                                        onmouseout="this.src='assets/images/uxui/VANS/left.png';" alt="이전페이지보기">
+                                    </button>
+                                </div>
+                                <div>
+                                    <button type="button" class="next">
+                                        <img src="assets/images/uxui/VANS/right.png" onmouseover="this.src='assets/images/uxui/VANS/rightHovrt.png';"
+                                        onmouseout="this.src='assets/images/uxui/VANS/right.png';" alt="다음페이지보기">
+                                    </button>
+                                </div>
+                              
+                            </div>
+                        </div>
+                    </div>
+                    <div id="vansContainer" class="pjContainer">
+                        <div class="vansCnt_wrap pj_wrap">
+                            <section id="vansCnt1">
+                                <div class="bgCircle"></div>
+                                <div class="vansPcDrop">
+                                    <img src="assets/images/uxui/VANS/introMac.png" alt="Vans PC화면">
+                                </div>
+                                <div class="vansMoblieDrop">
+                                    <img src="assets/images/uxui/VANS/introMobile.png" alt="Vans 모바일화면">
+                                </div>
+                                <h2>PROJECT<br>VANS<br>RENEWAL</h2>
+                                <P class="period">2020<br>11 16 - 12 11</P>
+                                <p class="index">BUILD        INDEX</p>
+                                
+                                <div class="lineSkew">
+                                    <img src="assets/images/uxui/VANS/line.png" alt="">
+                                </div>      
+                            </section>
+                            <section id="vansCnt2">
+                                <h2 class="vansTits">Advantage</h2>
+                                <p class="vansSmallTits">Custom</p>
+                                <p class="plain">커스텀 스케이트 보드화와 선택의 폭이 넓은 신발종류<br> : 장점이지만 홈페이지에서는 잘 살려주고 있지 않다.</p>
+                                <ul class="shoeWrap">
+                                    <li class="f_l">
+                                        <div class="whiteEra">
+                                            <img src="assets/images/uxui/VANS/whiteEra.png" alt="기본era신발">
+                                        </div>
+                                    </li>
+                                    <li class="f_r">
+                                        <div class="whiteslip-on">
+                                            <img src="assets/images/uxui/VANS/whiteSlipon.png" alt="기본slip-on신발">
+                                        </div>
+                                    </li>
+                                    <li class="f_l">
+                                        <div class="era">
+                                            <img src="assets/images/uxui/VANS/era.png" alt="custom  era신발">
+                                        </div>
+                                    </li>
+                                    <li class="f_r">
+                                        <div class="slip-on">
+                                            <img src="assets/images/uxui/VANS/slipOn.png" alt="custom slip-on신발">
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="pointer">
+                                    <img src="assets/images/uxui/VANS/pointer.png" alt="화살표">
+                                </div>
+                                <div class="cnt2Right f_r">
+                                    <div>
+                                        <img src="assets/images/uxui/VANS/pageTwoMain.png" alt="vansPc화면">
+                                    </div>
+                                    <ul class="cnt2Plain">
+                                        <li>
+                                            <div>
+                                                <div class="subLine"></div>
+                                                <p>1</p>
+                                            </div>
+                                            <div class="customPic">
+                                                <img src="assets/images/uxui/VANS/custom.png" alt="custom버튼">
+                                            </div>
+                                            <p>INDEX화면에 바로<br>CUSTOM 버튼을 노출시켰다.</p>
+                                        </li>
+                                        <li class="cntTwoTwo">
+                                            <div>
+                                                <div class="subLine"></div>
+                                                <p>2</p>
+                                            </div>
+                                            <p>취향에 맞는 신발종류를 바로 찾을 수 있는 <br>섹션을 기획했다.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+                            <section id="vansCnt3">
+                                <h2 class="vansTits">Advantage</h2>
+                                <p class="vansSmallTits">Collaboration & Collection</p>
+                                <p  class="plain">다양한 분야의 사람들과 콜라보레이션 하는 경우가 많고,<br>여러 콜렉션 라인들도 계속해서 나오는데에 비해 홈페이지가 노출되지 않는 느낌이다.</p>
+                                <div class="cnt3CollecionPic">
+                                    <p class="plain2">현재 반스에서 진행중인 콜렉션 라인</p>
+                                    <div>
+                                        <img src="assets/images/uxui/VANS/pageThirdSub.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="pointer">
+                                    <img src="assets/images/uxui/VANS/pointer.png" alt="화살표">
+                                </div>
+                                <div class="cnt3Right f_r">
+                                    <div>
+                                        <img src="assets/images/uxui/VANS/pageThirdMain.png" alt="">
+                                    </div>
+                                    <ul class="cnt3Plain">
+                                        <li>
+                                            <div>
+                                                <div class="subLine"></div>
+                                                <p>1</p>
+                                            </div>
+                                            <p>bxSlider로 현재 반스에서 진행 중인 콜렉션을 차례로 보여주었다.</p>
+                                        </li>
+                                        <li class="cnt3Two">
+                                            <div>
+                                                <div class="subLine"></div>
+                                                <p>2</p>
+                                            </div>
+                                            <p>진행 중인 콜렉션의 룩북을 인덱스 페이지에서도 볼 수 있게 구성해 주었다.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+                            <section id="vansCnt4">
+                                <h2 class="vansTits">Design Concept</h2>
+                                <p class="vansSmallTits">Vans의 아이덴티티를 보여주기 위한 4가지 요소</p>
+                                <div class="visualIdentity">
+                                    <h3>Identity</h3>
+                                    <p>Street Mood</p>
+                                    <p>Visual Delights</p>
+                                    <p>personality expressed</p>
+                                </div>
+                                <ul class="element">
+                                    <li class="tex">
+                                        <h3 class="fourElement">Texture</h3>
+                                        <div class="infoLine"></div>
+                                        <p>Street Mood</p>
+                                    </li>
+                                    <li class="ill">
+                                        <h3 class="fourElement">Illustration</h3> 
+                                        <div class="infoLine"></div>
+                                        <p>Visual Delights</p>
+                                        <p>personality expressed</p>
+                                    </li>
+                                    <li class="graffi">
+                                        <h3 class="fourElement">Graffiti Art</h3>
+                                        <div class="infoLine"></div>
+                                        <p>Street Mood</p>
+                                        <p>Visual Delights</p>
+                                        <p>personality expressed</p>
+                                        
+                                    </li>
+                                    <li class="clearfix colors">
+                                        <h3 class="fourElement">Colors</h3>
+                                        <div class="infoLine"></div>
+                                        <p>Visual Delights</p>
+                                        <p>personality expressed</p>
+                                        <ul class="colorChip">
+                                            <li class="f_l">
+                                                <div class="black"></div>
+                                            </li>
+                                            <li class="f_l">
+                                                <div class="white"></div>
+                                            </li>
+                                            <li class="f_l">
+                                                <div class="blue"></div>
+                                            </li>
+                                            <li class="f_l">
+                                                <div class="green"></div>
+                                            </li>
+                                            <li class="f_l">
+                                                <div class="red"></div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="cnt4Pc">
+                                    <img src="assets/images/uxui/VANS/pageFour.png" alt="vansPc화면">
+                                </div>
+                            </section>
+                            <section id="vansCnt5">
+                                <h2 class="vansTits">Responsive web</h2>
+                                <p class="vansSmallTits">PC - Mobile</p>
+                                <p class="plain">1920 x 1080 (pc) - 320 x 568 (mobile)까지 모두 지원하고 있다.</p>
+                                <div>
+                                    <div class="cnt5Pc">
+                                        <img src="assets/images/uxui/VANS/fivePc.png" alt="vansPc화면">
+                                    </div>
+                                    <div class="framePc"></div>
+                                    <div class="cnt5Moblie">
+                                        <img src="assets/images/uxui/VANS/fiveMoblie.png" alt="vansMobile화면">
+                                    </div>
+                                    <div class="frameM"></div>
+                                </div>
+                            </section>
+                            <section id="vansCnt6">
+                                <div>
+                                    <h2 class="vansTits">Accessibility</h2>
+                                    <p class="vansSmallTits">접근성 지침</p>
+                                    <span class="pGroup">
+                                        <p>대표적으로 아코디언 형식의 바료가기 영역이 있습니다.</p>
+                                        <p>
+                                            h2태그를 이용하여 현재 패널의 제목을 넣어 주었으며,<br>또한 자바스크립트에서 aria-expanded/aria-disabled 속성이 활성화 / 비활성화<br>되게 해주었습니다.
+                                        </p>
+                                        <p>마찬가지로 다른 영역들에서도 접근성을 지켜주기 위해서 노력하였습니다.</p>
+                                    </span>
+                                </div>
+                                <div class="codingWrap">
+                                    <ul>
+                                        <li>
+                                            <p>화면의 아코디언</p>
+                                            <div>
+                                                <img src="assets/images/uxui/VANS/accodian.png" alt="accodian화면"> 
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <p>html 문서</p>
+                                            <div>
+                                                <img src="assets/images/uxui/VANS/html.png" alt="accodian의 html">   
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <p>javascript 문서</p>
+                                            <div>
+                                                <img src="assets/images/uxui/VANS/js.png" alt="accodian의 자바스크립트">   
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+                            <section id="vansCnt7">
+                                <div class="vansCnt7Bg">
+                                    <p>VANS OFF THE WALL VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL </p>
+                                    <p>VANS OFF THE WALL VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  </p>
+                                    <p>VANS OFF THE WALL VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL VANS OFF THE WALL  VANS OFF THE WALL VANS OFF THE WALL VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL </p>
+                                    <p>VANS OFF THE WALL VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL VANS OFF THE WALL VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL </p>
+                                    <p>VANS OFF THE WALL VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL  VANS OFF THE WALL </p>
+                                </div>
+                                    <div class="macbook">
+                                        <img src="assets/images/uxui/VANS/viewWeb.png" alt="">
+                                    </div>
+                                    <a href="https://yeo-ha-eun.github.io/vans_project/">View Page</a>
+                                
+                            </section>
+                        </div>
+                    </div>
+                    <button type="button" class="class2 last">
+                        <span class="blind-b">close</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>

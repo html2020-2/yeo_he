@@ -41,12 +41,13 @@
   src: url("../font/Yoon340.eot");
   src: url("../font/Yoon340.eot#iefix") format("embedded-opentype"), url("../font/Yoon340.woff2") format("woff2"), url("../font/Yoon340.woff") format("woff"), url("../font/Yoon340.otf") format("opentype"); }
 /* tag reset */
-body, h1, h2, p, button, img, figure, ul, li {
+body, h1, h2, h3, p, button, img, figure, ul, li {
   margin: 0;
   padding: 0; }
 
-h1, h2 {
-  font-size: 100%; font-weight: inherit; }
+h1, h2, h3 {
+  font-size: 100%;
+  font-weight: inherit; }
 
 ul, li {
   list-style: none; }
@@ -62,12 +63,15 @@ button {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
-font-weight: inherit; }
+  font-weight: inherit; }
 
 img {
   border: none;
   vertical-align: top;
   max-width: 100%; }
+
+figure, nav, section {
+  display: block; }
 
 /* common class */
 .w26 {
