@@ -1,3 +1,4 @@
+  
 $(document).ready(function () {
   $('#moveSection .box2').draggable({
     containment: '.twinkle'   //.twinkle 안에서만
@@ -27,13 +28,15 @@ $(document).ready(function () {
   var ballTimer = 0;    
 
   //가로 스크롤
-  var $menu = $('.projectModal .indicator ul li');
-  var $cntWrap = $('.projectModal .pj-container');
-  var tgIdx = 0;  //로딩시 보여지는 섹션의 인덱스 번호, 인디케이터의 활성화 번호
-  var total = $cntWrap.children().size(); //섹션의 전체 개수
-  var winWidth;   //window의 가로크기를 저장할 전역변수
-  var timerWheel = 0; //mousewheel 이벤트의 실행문 누적을 방지
-  //console.log(total);
+  var $win = $(window);
+    var $menu = $('#vansIndicator ul li');
+    var $cntWrap = $('.pjContainer .vansCnt_wrap');
+    var tgIdx = 0;  //로딩시 보여지는 섹션의 인덱스 번호, 인디케이터의 활성화 번호
+    var total = $cntWrap.children().size(); //섹션의 전체 개수
+    var winWidth;   //window의 가로크기를 저장할 전역변수
+    var timerResize = 0; //resize이벤트의 실행문 누적을 방지 하기위해 clearTimeout()에서 호출
+    var timerWheel = 0; //mousewheel 이벤트의 실행문 누적을 방지
+    //console.log(total);
 
   //디지털시계
   //디지털시계1) 1초에 한번씩 날짜 객체를 생성해 시간 출력 => 반복적인 코드는 함수로 생성하면 좋다
@@ -121,10 +124,10 @@ $(document).ready(function () {
 
 //그라디언트 회전
 //그라디언트 회전1) 360도 회전 함수 생성
-var timerRotate;
+var timer;
 function AnimateRotate() {
   var duration= 4000;
-  timerRotate = setTimeout(function() {
+  timer = setTimeout(function() {
     AnimateRotate();
   }, duration);   
 
@@ -142,7 +145,7 @@ $('#gradient').on({
     AnimateRotate();
   },
   mouseleave: function () {
-    clearTimeout(timerRotate);
+    clearTimeout(timer);
   }
 });
 
@@ -234,13 +237,12 @@ $('#aboutWrap .smile').on('click', function (e) {
 
 // modal window2
   //modal1) 열기 버튼 클릭 이벤트
-  $('#portfolio .mdOpen_pj').on('click', function (e) {
+  $('#portfolio .vansRenewal').on('click', function (e) {
     //1) 필요한 변수 선언
     var _openBtn2 = $(this); //모달 닫기 버튼 클릭시 포커스 강제 이동을 위해
     var _mdCnt2 = $( $(this).data('target') );
-    console.log(_mdCnt2, typeof _mdCnt2); //string타입을 $()로 감싸서 선택자로 변경함 
-    var _closeBtn2 = _mdCnt2.find('.class2');
-    var timer2 = 0;
+    //console.log(_mdCnt2, typeof _mdCnt2); //string타입을 $()로 감싸서 선택자로 변경함 
+    var _closeBtn2 = _mdCnt2.find('.last');
     var _first = _mdCnt2.find('.first');
     var _last = _mdCnt2.find('.last');
   
@@ -283,18 +285,20 @@ $('#aboutWrap .smile').on('click', function (e) {
       _openBtn2.focus();
     });
   
-        //esc 키보드를 누른 경우도 닫겨진다
+    //esc 키보드를 누른 경우도 닫겨진다
     $(window).on('keydown', function (e) {
       //console.log(e.keyCode); //esc 27
       if (e.keyCode === 27) _closeBtn2.click();
     });
   });
 
-//프로젝트 상세화면 가로 스크롤
- //1) 초기 설정 : 인디케이터 첫번째 li.on  클래스 추가하여 활성화
- $menu.eq(0).addClass('on');
+  //vans 가로 스크롤
+  //1) 초기 설정 : 인디케이터 첫번째 li.on  클래스 추가하여 활성화
+  $menu.eq(0).addClass('on');
 
-//2)  100% 크기여서 resize 이벤트는 필요없음
+  //2) resize 이벤트 : 없어도 된다 모달창의 크기가 100%여서 위치는 항상 top0, left0이다
+  winWidth = $win.width();
+  $cntWrap.css('width', winWidth * total).children().css('width', winWidth);
 
  //3) 인디케이터 클릭 이벤트
  $menu.children().on('click', function (e) {
@@ -303,7 +307,7 @@ $('#aboutWrap .smile').on('click', function (e) {
      //3-1) 현재 애니메이트(.cnt_wrap) 중이면 함수 강제 종료
      if ( $cntWrap.is(':animated') ) return false;
      tgIdx = $(this).parent().index(); //인디케이터 li의 인덱스번호
-     console.log(tgIdx);
+     //console.log(tgIdx);
      //3-2) 클릭한 인디케이터가 활성화
      $(this).parent().addClass('on').siblings().removeClass('on');
      //3-3) 애니메이트(.cnt_wrap)
@@ -365,18 +369,18 @@ $('#aboutWrap .smile').on('click', function (e) {
  });
 
  //6) 이전과 다음 버튼 클릭 이벤트 :if : 다음, else if : 이전
-//  $('.projectModal .controler button').on('click', function (e) {
-//      //5-1) 현재 애니메이트(.cnt_wrap) 중이면 함수 강제 종료
-//      if ( $cntWrap.is(':animated') ) return false;
+  $('.pjModal .controler button').on('click', function (e) {
+    //5-1) 현재 애니메이트(.cnt_wrap) 중이면 함수 강제 종료
+    if ( $cntWrap.is(':animated') ) return false;
 
-//      //5-2) if : 다음, else if : 이전 => tgIdx제어
-//      var btnNum=$(this).parent().index();
-//      if (btnNum === 1) tgIdx++;
-//      else tgIdx--;
+    //5-2) if : 다음, else if : 이전 => tgIdx제어
+    var btnNum=$(this).parent().index();
+    if (btnNum === 1 && tgIdx < total - 1) tgIdx++;
+    else if (btnNum === 0 && tgIdx > 0) tgIdx--;
 
-//      //5-3) 인디케이터 활성 , .cnt_wrap 애니메이션
-//      $menu.eq(tgIdx).addClass('on').siblings().removeClass('on');
-//      $cntWrap.stop().animate({marginLeft: tgIdx * winWidth * -1}, 700);
-//  });
+    //5-3) 인디케이터 활성 , .cnt_wrap 애니메이션
+    $menu.eq(tgIdx).addClass('on').siblings().removeClass('on');
+    $cntWrap.stop().animate({marginLeft: tgIdx * winWidth * -1}, 700);
+  });
  
 });
