@@ -40,12 +40,18 @@
   font-style: normal;
   src: url("../font/Yoon340.eot");
   src: url("../font/Yoon340.eot#iefix") format("embedded-opentype"), url("../font/Yoon340.woff2") format("woff2"), url("../font/Yoon340.woff") format("woff"), url("../font/Yoon340.otf") format("opentype"); }
+@font-face {
+  font-family: roboto;
+  font-weight: 500;
+  font-style: normal;
+  src: url("../font/Roboto-Medium.eot");
+  src: url("../font/Roboto-Medium.eot#iefix") format("embedded-opentype"), url("../font/Roboto-Medium.woff2") format("woff2"), url("../font/Roboto-Medium.woff") format("woff"), url("../font/Roboto-Medium.otf") format("truetype"); }
 /* tag reset */
-body, h1, h2, p, button, img, figure, ul, li {
+body, h1, h2, h3, p, button, img, figure, ul, li, strong {
   margin: 0;
   padding: 0; }
 
-h1, h2 {
+h1, h2, h3 {
   font-size: 100%;
   font-weight: inherit; }
 
@@ -70,7 +76,7 @@ img {
   vertical-align: top;
   max-width: 100%; }
 
-figure {
+figure, nav, section {
   display: block; }
 
 /* common class */
@@ -82,6 +88,9 @@ figure {
 
 .w22 {
   width: 22%; }
+
+.ml11vw {
+  margin-left: 11vw; }
 
 .f_l {
   float: left; }

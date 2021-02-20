@@ -70,20 +70,32 @@
     url("../font/Yoon340.woff") format("woff"),
     url("../font/Yoon340.otf") format("opentype");
 };
+@font-face{
+    font-family: roboto;
+    font-weight: 500;
+    font-style: normal;
+    src: url("../font/Roboto-Medium.eot");
+    src: url("../font/Roboto-Medium.eot#iefix") format("embedded-opentype"),
+    url("../font/Roboto-Medium.woff2") format("woff2"),
+    url("../font/Roboto-Medium.woff") format("woff"),
+    url("../font/Roboto-Medium.otf") format("truetype");
+};
 
 /* tag reset */
-body, h1, h2, p, button, img, figure, ul, li{margin: 0;padding: 0;}
-h1, h2{font-size: 100%;font-weight: inherit;}
+body, h1, h2, h3, p, button, img, figure, ul, li,strong{margin: 0;padding: 0;}
+h1, h2, h3{font-size: 100%;font-weight: inherit;}
 ul, li{list-style: none;}
 a:link, a:visited, a:hover, a:active{text-decoration: none; color: inherit;}
 button{background: none; border: none; cursor: pointer;font-family: inherit;font-size: inherit;color: inherit;font-weight: inherit;}
 img{border: none; vertical-align: top;max-width: 100%;}
-figure{display: block;}
+figure, nav, section {display: block;}
+
 
 /* common class */
 .w26 {width: 26%;}
 .w52 {width: 52%;}
 .w22 {width: 22%;}
+.ml11vw{margin-left: 11vw;}
 .f_l{float: left;}
 .f_r{float: right;}
 .p_r{position: relative;}

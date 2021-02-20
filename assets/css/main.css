@@ -100,8 +100,19 @@
       right: 4%;
       top: 10%; }
   #box_wrap .w26 #aboutWrap .position {
+    position: relative;
     height: 9%;
-    border-top: 1px solid #fffabf; }
+    border-top: 1px solid #fffabf;
+    display: flex; }
+    #box_wrap .w26 #aboutWrap .position .positionTxt {
+      margin-left: 4%; }
+    #box_wrap .w26 #aboutWrap .position p {
+      width: 25%;
+      font-size: 0.8vw;
+      display: flex;
+      align-items: center; }
+    #box_wrap .w26 #aboutWrap .position p:nth-child(2), #box_wrap .w26 #aboutWrap .position p:nth-child(4) {
+      margin-left: 20%; }
 #box_wrap .w26 #moveSection {
   font-size: 0.8vw;
   height: 29%; }
@@ -119,6 +130,17 @@
       top: 50%;
       left: 50%;
       text-align: center; }
+    #box_wrap .w26 #moveSection .half .box2 {
+      width: 3.18vw;
+      height: 3.91vw;
+      right: 0.8vw;
+      bottom: 1vw; }
+    #box_wrap .w26 #moveSection .half .square {
+      position: absolute; }
+      #box_wrap .w26 #moveSection .half .square img {
+        height: auto;
+        max-width: 100%;
+        vertical-align: bottom; }
   #box_wrap .w26 #moveSection .half:first-child {
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -134,6 +156,25 @@
     background-color: #5d9eff; }
     #box_wrap .w26 #moveSection .half:last-child p {
       color: #a1ffaa; }
+    #box_wrap .w26 #moveSection .half:last-child .halfLine {
+      width: 10.36vw;
+      height: 0.36vw;
+      position: absolute;
+      right: 1.46vw; }
+      #box_wrap .w26 #moveSection .half:last-child .halfLine img {
+        height: auto;
+        max-width: 100%;
+        vertical-align: bottom; }
+    #box_wrap .w26 #moveSection .half:last-child .lineTop {
+      top: 0.94vw; }
+    #box_wrap .w26 #moveSection .half:last-child .lineDown {
+      bottom: 1.73vw; }
+    #box_wrap .w26 #moveSection .half:last-child .box3 {
+      height: 3.91vw;
+      width: 3.91vw;
+      top: 0.42vw;
+      left: 0.42vw;
+      cursor: e-resize; }
 
 #box_wrap .w52 #portfolio {
   height: 71%;
@@ -187,7 +228,8 @@
   position: relative;
   width: 100%;
   height: 29vh;
-  perspective: 100vw; }
+  perspective: 100vw;
+  z-index: 10; }
   #box_wrap .w52 .card .front {
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -331,7 +373,8 @@
   width: 100%;
   height: 100%;
   visibility: hidden;
-  opacity: 0; }
+  opacity: 0;
+  z-index: 200; }
   .modal .background {
     position: fixed;
     width: 100%;
@@ -461,72 +504,52 @@
           float: left; }
         .modal .view-container .view .down .education ul p + p {
           margin-left: 3.13vw; }
-      .modal .view-container .view .down .do ul .design, .modal .view-container .view .down .do ul .coding {
-        width: 100%; }
-        .modal .view-container .view .down .do ul .design + li, .modal .view-container .view .down .do ul .coding + li {
-          margin-top: 1.41vw; }
-        .modal .view-container .view .down .do ul .design > p, .modal .view-container .view .down .do ul .coding > p {
-          margin-right: 0.5vw;
-          width: 20%; }
-        .modal .view-container .view .down .do ul .design p, .modal .view-container .view .down .do ul .coding p {
-          float: left; }
-        .modal .view-container .view .down .do ul .design ul >, .modal .view-container .view .down .do ul .coding ul > {
-          float: right;
-          width: 80%; }
-          .modal .view-container .view .down .do ul .design ul > > li, .modal .view-container .view .down .do ul .coding ul > > li {
-            width: 100%;
+      .modal .view-container .view .down .do ul {
+        /*  .design{
+             .p100{position: relative;
+                 width: 1.93vw;height: 1.98vw;
+                 p:first-child{
+                     @include transform(translateY(-80%));
+                     position: absolute;top: 50%;}
+             p:last-child{font-size: 0.52vw;position: absolute;bottom: 0;}}
+             .p70, .p60, .p50{position: relative;
+                 p{width: 100%;text-align: center;}
+                 p:first-child{
+                 @include transform(translateY(-80%));
+                 position: absolute;top: 50%;}
+             p:last-child{font-size: 0.52vw;position: absolute;bottom: 0;}}
+         }
+          */ }
+        .modal .view-container .view .down .do ul .design, .modal .view-container .view .down .do ul .coding {
+          width: 100%; }
+          .modal .view-container .view .down .do ul .design + li, .modal .view-container .view .down .do ul .coding + li {
+            margin-top: 1.41vw; }
+          .modal .view-container .view .down .do ul .design > p, .modal .view-container .view .down .do ul .coding > p {
+            margin-right: 0.5vw;
+            width: 20%; }
+          .modal .view-container .view .down .do ul .design p, .modal .view-container .view .down .do ul .coding p {
             float: left; }
-        .modal .view-container .view .down .do ul .design .percent, .modal .view-container .view .down .do ul .coding .percent {
-          width: 1.98vw;
-          display: inline-block; }
-          .modal .view-container .view .down .do ul .design .percent > p, .modal .view-container .view .down .do ul .coding .percent > p {
-            width: 100%;
-            text-align: center; }
-        .modal .view-container .view .down .do ul .design .percent + .percent, .modal .view-container .view .down .do ul .coding .percent + .percent {
-          margin-left: 0.5vw; }
-      .modal .view-container .view .down .do ul .design .p100 {
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        border-radius: 50%;
-        position: relative;
-        width: 1.93vw;
-        height: 1.98vw;
-        background: #ff7800; }
-        .modal .view-container .view .down .do ul .design .p100 p:first-child {
-          -webkit-transform: translateY(-80%);
-          -moz-transform: translateY(-80%);
-          -o-transform: translateY(-80%);
-          -ms-transform: translateY(-80%);
-          transform: translateY(-80%);
-          position: absolute;
-          top: 50%; }
-        .modal .view-container .view .down .do ul .design .p100 p:last-child {
-          font-size: 0.52vw;
-          position: absolute;
-          bottom: 0; }
-      .modal .view-container .view .down .do ul .design .orangeTop {
-        width: 1.93vw; }
-        .modal .view-container .view .down .do ul .design .orangeTop img {
-          height: auto;
-          max-width: 100%;
-          vertical-align: bottom; }
-      .modal .view-container .view .down .do ul .design .p70, .modal .view-container .view .down .do ul .design .p60, .modal .view-container .view .down .do ul .design .p50 {
-        position: relative; }
-        .modal .view-container .view .down .do ul .design .p70 p, .modal .view-container .view .down .do ul .design .p60 p, .modal .view-container .view .down .do ul .design .p50 p {
-          width: 100%;
-          text-align: center; }
-        .modal .view-container .view .down .do ul .design .p70 p:first-child, .modal .view-container .view .down .do ul .design .p60 p:first-child, .modal .view-container .view .down .do ul .design .p50 p:first-child {
-          -webkit-transform: translateY(-80%);
-          -moz-transform: translateY(-80%);
-          -o-transform: translateY(-80%);
-          -ms-transform: translateY(-80%);
-          transform: translateY(-80%);
-          position: absolute;
-          top: 50%; }
-        .modal .view-container .view .down .do ul .design .p70 p:last-child, .modal .view-container .view .down .do ul .design .p60 p:last-child, .modal .view-container .view .down .do ul .design .p50 p:last-child {
-          font-size: 0.52vw;
-          position: absolute;
-          bottom: 0; }
+          .modal .view-container .view .down .do ul .design ul >, .modal .view-container .view .down .do ul .coding ul > {
+            float: right;
+            width: 80%; }
+            .modal .view-container .view .down .do ul .design ul > > li, .modal .view-container .view .down .do ul .coding ul > > li {
+              width: 100%;
+              float: left; }
+          .modal .view-container .view .down .do ul .design .percent, .modal .view-container .view .down .do ul .coding .percent {
+            width: 1.98vw;
+            display: inline-block; }
+            .modal .view-container .view .down .do ul .design .percent > p, .modal .view-container .view .down .do ul .coding .percent > p {
+              width: 100%;
+              text-align: center; }
+          .modal .view-container .view .down .do ul .design .percent + .percent, .modal .view-container .view .down .do ul .coding .percent + .percent {
+            margin-left: 0.5vw; }
+        .modal .view-container .view .down .do ul .design {
+          width: 100%; }
+          .modal .view-container .view .down .do ul .design .p50 {
+            float: right;
+            margin-top: 0.6vw; }
+        .modal .view-container .view .down .do ul .Max {
+          margin-right: 1.3vw; }
     .modal .view-container .view .class {
       -webkit-background-size: cover;
       -moz-background-size: cover;
@@ -542,5 +565,974 @@
 @keyframes hide {
   0%, 100% {
     transform: translateY(-100%); } }
+.pjModal {
+  z-index: 200;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0; }
+  .pjModal .pj-container .pjView {
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    transform: translateY(0%);
+    position: fixed;
+    z-index: 300;
+    top: 0;
+    left: 0;
+    width: 100%; }
+    .pjModal .pj-container .pjView .pj-header {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      height: 6.57vh;
+      width: 100%;
+      font-size: 1.56vw;
+      color: #1800fd;
+      line-height: 6.57vh;
+      background: #fff;
+      border: 3px solid #000;
+      z-index: 400; }
+      .pjModal .pj-container .pjView .pj-header h2 {
+        margin-left: 1.5vw;
+        display: inline-block; }
+    .pjModal .pj-container .pjView .pj-bottom {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      position: fixed;
+      top: 88.89vh;
+      left: 0;
+      border: 3px solid #000;
+      height: 11.11vh;
+      width: 100%;
+      background: #fff;
+      z-index: 400; }
+      .pjModal .pj-container .pjView .pj-bottom > div {
+        position: relative; }
+        .pjModal .pj-container .pjView .pj-bottom > div .controler {
+          width: 30%;
+          position: absolute;
+          top: 1.04vw;
+          right: 1.2vw; }
+          .pjModal .pj-container .pjView .pj-bottom > div .controler .prev, .pjModal .pj-container .pjView .pj-bottom > div .controler .next {
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            height: 7.41vh; }
+            .pjModal .pj-container .pjView .pj-bottom > div .controler .prev img, .pjModal .pj-container .pjView .pj-bottom > div .controler .next img {
+              height: auto;
+              max-width: 100%;
+              vertical-align: bottom; }
+          .pjModal .pj-container .pjView .pj-bottom > div .controler .prev {
+            width: 7.41vh;
+            float: left; }
+          .pjModal .pj-container .pjView .pj-bottom > div .controler .next {
+            width: 24.44vh;
+            float: right; }
+        .pjModal .pj-container .pjView .pj-bottom > div .indicator {
+          width: 65%;
+          position: absolute;
+          top: 1.04vw;
+          left: 1.2vw; }
+          .pjModal .pj-container .pjView .pj-bottom > div .indicator ul {
+            height: 4.32vw;
+            width: 100%;
+            position: relative; }
+            .pjModal .pj-container .pjView .pj-bottom > div .indicator ul li {
+              float: left;
+              height: 7.41vh;
+              padding-right: 0.73vw; }
+              .pjModal .pj-container .pjView .pj-bottom > div .indicator ul li button {
+                vertical-align: top;
+                width: 100%; }
+                .pjModal .pj-container .pjView .pj-bottom > div .indicator ul li button .txt {
+                  font-size: 1.56vw;
+                  opacity: 0;
+                  line-height: 7.41vh;
+                  text-align: center;
+                  position: absolute;
+                  top: 0;
+                  right: 0; }
+                .pjModal .pj-container .pjView .pj-bottom > div .indicator ul li button .icon {
+                  -webkit-box-sizing: border-box;
+                  -moz-box-sizing: border-box;
+                  box-sizing: border-box;
+                  -webkit-border-radius: 50%;
+                  -moz-border-radius: 50%;
+                  border-radius: 50%;
+                  position: relative;
+                  width: 7.41vh;
+                  float: left;
+                  border: 3px solid #000;
+                  height: 7.41vh; }
+                  .pjModal .pj-container .pjView .pj-bottom > div .indicator ul li button .icon::before {
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    border-radius: 50%;
+                    -webkit-transform: 0.5s;
+                    -moz-transform: 0.5s;
+                    -o-transform: 0.5s;
+                    -ms-transform: 0.5s;
+                    transform: 0.5s;
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    background: #000;
+                    text-align: center; }
+          .pjModal .pj-container .pjView .pj-bottom > div .indicator ul li.on .icon:before {
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            width: 70%;
+            height: 70%; }
+          .pjModal .pj-container .pjView .pj-bottom > div .indicator ul li.on .txt {
+            -webkit-transform: 0.5s;
+            -moz-transform: 0.5s;
+            -o-transform: 0.5s;
+            -ms-transform: 0.5s;
+            transform: 0.5s;
+            opacity: 1; }
+    .pjModal .pj-container .pjView .pjContainer, .pjModal .pj-container .pjView .pjContainer .pj_wrap, .pjModal .pj-container .pjView .pjContainer .pj_wrap section {
+      height: 100%;
+      background: #fff; }
+    .pjModal .pj-container .pjView #vansContainer {
+      width: 100%;
+      overflow: hidden; }
+      .pjModal .pj-container .pjView #vansContainer .vansCnt_wrap {
+        height: 82.32vh; }
+        .pjModal .pj-container .pjView #vansContainer .vansCnt_wrap section {
+          float: left;
+          padding-top: 3.7vw;
+          padding-bottom: 6.25vw; }
+      .pjModal .pj-container .pjView #vansContainer #vansCnt1 {
+        width: 100%;
+        position: relative;
+        color: #1800fd;
+        background: #fff; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt1 h2 {
+          -webkit-transform: skew(-30deg, -6deg) translateX(-50%);
+          -moz-transform: skew(-30deg, -6deg) translateX(-50%);
+          -o-transform: skew(-30deg, -6deg) translateX(-50%);
+          -ms-transform: skew(-30deg, -6deg) translateX(-50%);
+          transform: skew(-30deg, -6deg) translateX(-50%);
+          position: absolute;
+          top: 6.5vw;
+          left: 50%;
+          font-size: 3.65vw;
+          text-align: right; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt1 p {
+          -webkit-transform: skew(-30deg, -6deg);
+          -moz-transform: skew(-30deg, -6deg);
+          -o-transform: skew(-30deg, -6deg);
+          -ms-transform: skew(-30deg, -6deg);
+          transform: skew(-30deg, -6deg);
+          position: absolute;
+          font-size: 1.15vw;
+          font-family: Mot;
+          font-weight: 500; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt1 .vansPcDrop {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 33.13vw;
+          height: 46.41vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt1 .vansPcDrop img {
+            height: auto;
+            max-width: 100%;
+            vertical-align: bottom; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt1 .vansMoblieDrop {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 26.41vw;
+          height: 46.3vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt1 .vansMoblieDrop img {
+            height: auto;
+            max-width: 100%;
+            vertical-align: bottom; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt1 .period {
+          top: 24vw;
+          left: 60%; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt1 .index {
+          top: 28vw;
+          left: 58%; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt1 .lineSkew {
+          position: absolute;
+          width: 28.65vw;
+          height: 4.01vw;
+          top: 26vw;
+          left: 25%; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt1 .lineSkew img {
+            height: auto;
+            max-width: 100%;
+            vertical-align: bottom; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt1 .bgCircle {
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+          -webkit-transform: translateX(-50%);
+          -moz-transform: translateX(-50%);
+          -o-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+          background: #fff000;
+          width: 45vw;
+          height: 18vw;
+          position: absolute;
+          top: 14vw;
+          left: 50%; }
+      .pjModal .pj-container .pjView #vansContainer #vansCnt2 {
+        width: 100%;
+        position: relative; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt2 .vansTits, .pjModal .pj-container .pjView #vansContainer #vansCnt2 .vansSmallTits, .pjModal .pj-container .pjView #vansContainer #vansCnt2 .plain {
+          position: absolute;
+          font-family: yoon;
+          left: 5.63vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt2 .vansTits {
+          top: 4.34vw;
+          font-size: 1.88vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt2 .vansSmallTits {
+          top: 6.32vw;
+          font-size: 1.04vw;
+          padding-top: 0.31vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt2 .plain {
+          font-size: 0.7vw;
+          top: 10.2vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt2 .shoeWrap {
+          width: 40%;
+          float: left;
+          position: absolute;
+          left: 5.63vw;
+          top: 19vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt2 .shoeWrap li {
+            width: 50%; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt2 .shoeWrap li img {
+              height: auto;
+              max-width: 100%;
+              vertical-align: bottom; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt2 .shoeWrap li .whiteEra {
+              height: 6.04vw;
+              width: 15.68vw; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt2 .shoeWrap li .whiteslip-on {
+              height: 6.35vw;
+              width: 15.31vw; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt2 .shoeWrap li .era {
+              width: 14.38vw;
+              height: 9.58vw; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt2 .shoeWrap li .slip-on {
+              width: 15vw;
+              height: 7.6vw; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt2 .shoeWrap li .era, .pjModal .pj-container .pjView #vansContainer #vansCnt2 .shoeWrap li .slip-on {
+              padding-top: 4.17vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt2 .pointer {
+          width: 12.34vw;
+          height: 1.04vw;
+          position: absolute;
+          top: 9.5vw;
+          left: 39.06vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt2 .pointer img {
+            height: auto;
+            max-width: 100%;
+            vertical-align: bottom; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt2 .cnt2Right {
+          width: 60%; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt2 .cnt2Right > div {
+            width: 24.53vw;
+            height: 43.23vw;
+            top: 9.32vw;
+            border: 3px solid #000;
+            margin-left: 25%; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt2 .cnt2Right > div img {
+              height: auto;
+              max-width: 100%;
+              vertical-align: bottom; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt2 .cnt2Right .cnt2Plain {
+            position: absolute;
+            top: 4vw;
+            right: 0;
+            width: 22%;
+            font-family: 'yoon';
+            font-size: 0.83vw;
+            margin-top: 0.3vw; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt2 .cnt2Right .cnt2Plain li {
+              width: 100%; }
+              .pjModal .pj-container .pjView #vansContainer #vansCnt2 .cnt2Right .cnt2Plain li > p {
+                width: 7.86vw;
+                float: right;
+                position: absolute;
+                top: 6vw;
+                right: 6vw; }
+              .pjModal .pj-container .pjView #vansContainer #vansCnt2 .cnt2Right .cnt2Plain li div {
+                width: 100%; }
+                .pjModal .pj-container .pjView #vansContainer #vansCnt2 .cnt2Right .cnt2Plain li div .subLine {
+                  float: left;
+                  width: 5.26vw;
+                  border: 1px solid #000; }
+                .pjModal .pj-container .pjView #vansContainer #vansCnt2 .cnt2Right .cnt2Plain li div p {
+                  color: #fff;
+                  text-align: center;
+                  line-height: 1.56vw;
+                  float: left;
+                  background: #000;
+                  width: 1.56vw;
+                  height: 1.56vw;
+                  position: absolute;
+                  left: 5vw; }
+                .pjModal .pj-container .pjView #vansContainer #vansCnt2 .cnt2Right .cnt2Plain li div p:first-child {
+                  top: -0.1vw; }
+              .pjModal .pj-container .pjView #vansContainer #vansCnt2 .cnt2Right .cnt2Plain li .customPic {
+                position: absolute;
+                left: 8vw;
+                border: 3px solid #000;
+                width: 7.86vw;
+                height: 4.58vw; }
+                .pjModal .pj-container .pjView #vansContainer #vansCnt2 .cnt2Right .cnt2Plain li .customPic img {
+                  height: auto;
+                  max-width: 100%;
+                  vertical-align: bottom; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt2 .cnt2Right .cnt2Plain .cntTwoTwo > div {
+              position: absolute;
+              top: 20vw; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt2 .cnt2Right .cnt2Plain .cntTwoTwo > p {
+              position: absolute;
+              top: 20vw; }
+      .pjModal .pj-container .pjView #vansContainer #vansCnt3 {
+        width: 100%;
+        position: relative; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt3 .vansTits, .pjModal .pj-container .pjView #vansContainer #vansCnt3 .vansSmallTits, .pjModal .pj-container .pjView #vansContainer #vansCnt3 .plain, .pjModal .pj-container .pjView #vansContainer #vansCnt3 .plain2 {
+          position: absolute;
+          font-family: yoon;
+          left: 5.63vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt3 .vansTits {
+          top: 4.34vw;
+          font-size: 1.88vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt3 .vansSmallTits {
+          top: 6.32vw;
+          font-size: 1.04vw;
+          padding-top: 0.31vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt3 .plain {
+          font-size: 0.7vw;
+          top: 10.2vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt3 .plain2 {
+          font-size: 0.7vw;
+          top: 10.2vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt3 .cnt3CollecionPic {
+          width: 25.11vw;
+          height: 16.11vw;
+          top: 21vw;
+          left: 5.63vw;
+          position: absolute; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt3 .cnt3CollecionPic img {
+            height: auto;
+            max-width: 100%;
+            vertical-align: bottom; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt3 .pointer {
+          width: 12.34vw;
+          height: 1.04vw;
+          position: absolute;
+          top: 9.5vw;
+          left: 39.06vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt3 .pointer img {
+            height: auto;
+            max-width: 100%;
+            vertical-align: bottom; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt3 .cnt3Right {
+          width: 60%; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt3 .cnt3Right > div {
+            width: 24.53vw;
+            height: 43.23vw;
+            top: 9.32vw;
+            border: 3px solid #000;
+            margin-left: 25%; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt3 .cnt3Right > div img {
+              height: auto;
+              max-width: 100%;
+              vertical-align: bottom; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt3 .cnt3Right .cnt3Plain {
+            position: absolute;
+            top: 4vw;
+            right: 0;
+            width: 22%;
+            font-family: 'yoon';
+            font-size: 0.83vw;
+            margin-top: 0.3vw; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt3 .cnt3Right .cnt3Plain li {
+              width: 100%; }
+              .pjModal .pj-container .pjView #vansContainer #vansCnt3 .cnt3Right .cnt3Plain li > p {
+                width: 7.86vw;
+                float: right;
+                position: absolute;
+                top: 0;
+                right: 6vw; }
+              .pjModal .pj-container .pjView #vansContainer #vansCnt3 .cnt3Right .cnt3Plain li div {
+                width: 100%; }
+                .pjModal .pj-container .pjView #vansContainer #vansCnt3 .cnt3Right .cnt3Plain li div .subLine {
+                  float: left;
+                  width: 5.26vw;
+                  border: 1px solid #000; }
+                .pjModal .pj-container .pjView #vansContainer #vansCnt3 .cnt3Right .cnt3Plain li div p {
+                  color: #fff;
+                  text-align: center;
+                  line-height: 1.56vw;
+                  float: left;
+                  background: #000;
+                  width: 1.56vw;
+                  height: 1.56vw;
+                  position: absolute;
+                  left: 5vw;
+                  word-break: keep-all; }
+                .pjModal .pj-container .pjView #vansContainer #vansCnt3 .cnt3Right .cnt3Plain li div p:first-child {
+                  top: -0.1vw; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt3 .cnt3Right .cnt3Plain .cnt3Two > div {
+              position: absolute;
+              top: 29vw; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt3 .cnt3Right .cnt3Plain .cnt3Two > p {
+              position: absolute;
+              top: 29vw; }
+      .pjModal .pj-container .pjView #vansContainer #vansCnt4 {
+        width: 100%;
+        position: relative;
+        font-family: yoon; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt4 .vansTits, .pjModal .pj-container .pjView #vansContainer #vansCnt4 .vansSmallTits, .pjModal .pj-container .pjView #vansContainer #vansCnt4 .visualIdentity {
+          position: absolute;
+          left: 5.63vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt4 .vansTits {
+          top: 2.34vw;
+          font-size: 1.88vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt4 .vansSmallTits {
+          top: 4.32vw;
+          font-size: 1.04vw;
+          padding-top: 0.31vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt4 .visualIdentity {
+          top: 7.5vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt4 .visualIdentity h3 {
+            font-size: 1.25vw;
+            padding-bottom: 0.6vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt4 .visualIdentity p {
+            font-size: 0.73vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt4 .visualIdentity p + p {
+            padding-top: 0.4vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt4 .element {
+          position: absolute;
+          left: 30vw;
+          top: 7.5vw;
+          height: 100%; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt4 .element li h3 {
+            font-size: 1.25vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt4 .element li p {
+            font-size: 0.73vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt4 .element li p + p {
+            padding-top: 0.4vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt4 .element li > p {
+            padding-top: 1vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt4 .element li .infoLine {
+            border: 1px solid #000;
+            width: 38.56vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt4 .element .ill {
+            margin-top: 3vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt4 .element .graffi {
+            margin-top: 7vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt4 .element .colors {
+            margin-top: 2vw; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt4 .element .colors .colorChip {
+              position: absolute;
+              width: 100%;
+              top: 28.3vw;
+              left: 13vw; }
+              .pjModal .pj-container .pjView #vansContainer #vansCnt4 .element .colors .colorChip li {
+                width: 4.17vw;
+                height: 1.04vw;
+                border: 1.5px solid #000; }
+                .pjModal .pj-container .pjView #vansContainer #vansCnt4 .element .colors .colorChip li:first-child {
+                  background: #000; }
+                .pjModal .pj-container .pjView #vansContainer #vansCnt4 .element .colors .colorChip li:nth-child(2) {
+                  background: #fff; }
+                .pjModal .pj-container .pjView #vansContainer #vansCnt4 .element .colors .colorChip li:nth-child(3) {
+                  background: #1800fd; }
+                .pjModal .pj-container .pjView #vansContainer #vansCnt4 .element .colors .colorChip li:nth-child(4) {
+                  background: #00ff00; }
+                .pjModal .pj-container .pjView #vansContainer #vansCnt4 .element .colors .colorChip li:last-child {
+                  background: #ff0000; }
+              .pjModal .pj-container .pjView #vansContainer #vansCnt4 .element .colors .colorChip li + li {
+                margin-left: 1.04vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt4 .cnt4Pc {
+          width: 21.53vw;
+          height: 55.83vw;
+          position: absolute;
+          top: 0;
+          right: 8.85vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt4 .cnt4Pc img {
+            height: auto;
+            max-width: 100%;
+            vertical-align: bottom; }
+      .pjModal .pj-container .pjView #vansContainer #vansCnt5 {
+        width: 100%;
+        position: relative;
+        font-family: yoon; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt5 .vansTits, .pjModal .pj-container .pjView #vansContainer #vansCnt5 .vansSmallTits, .pjModal .pj-container .pjView #vansContainer #vansCnt5 p {
+          position: absolute;
+          left: 5.63vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt5 .vansTits {
+          top: 2.34vw;
+          font-size: 1.88vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt5 .vansSmallTits {
+          top: 4.32vw;
+          font-size: 1.04vw;
+          padding-top: 0.31vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt5 .plain {
+          font-size: 0.7vw;
+          top: 10.2vw;
+          padding-top: 0.31vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt5 .cnt5Pc {
+          position: absolute;
+          left: 39.10vw;
+          top: 0;
+          height: 56.25vw;
+          width: 35.57vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt5 .cnt5Pc img {
+            height: auto;
+            max-width: 100%;
+            vertical-align: bottom; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt5 .framePc {
+          -webkit-border-radius: 27px;
+          -moz-border-radius: 27px;
+          border-radius: 27px;
+          border: 3px solid #000;
+          position: absolute;
+          top: 11.68vw;
+          left: 39.10vw;
+          width: 35.57vw;
+          height: 20.26vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt5 .cnt5Moblie {
+          position: absolute;
+          left: 77.47vw;
+          top: 0;
+          width: 14.38vw;
+          height: 46.3vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt5 .cnt5Moblie img {
+            height: auto;
+            max-width: 100%;
+            vertical-align: bottom; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt5 .frameM {
+          -webkit-border-radius: 29px;
+          -moz-border-radius: 29px;
+          border-radius: 29px;
+          border: 3px solid #000;
+          position: absolute;
+          top: 2.4vw;
+          left: 77.4vw;
+          width: 14.17vw;
+          height: 26.09vw; }
+      .pjModal .pj-container .pjView #vansContainer #vansCnt6 {
+        width: 100%;
+        position: relative;
+        font-family: yoon;
+        z-index: 350; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt6 > div {
+          width: 30%; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt6 > div .vansTits, .pjModal .pj-container .pjView #vansContainer #vansCnt6 > div .vansSmallTits, .pjModal .pj-container .pjView #vansContainer #vansCnt6 > div .pGroup {
+            position: absolute;
+            left: 5.63vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt6 > div .vansTits {
+            top: 2.34vw;
+            font-size: 1.88vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt6 > div .vansSmallTits {
+            top: 4.32vw;
+            font-size: 1.04vw;
+            padding-top: 0.31vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt6 > div .pGroup {
+            font-size: 0.7vw;
+            bottom: 12vw;
+            padding-top: 0.31vw;
+            word-break: keep-all; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt6 > div .pGroup p {
+              line-height: 1.56vw; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt6 > div .pGroup p + p {
+              padding-top: 1.6vw; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt6 .codingWrap {
+          width: 70%;
+          position: absolute;
+          left: 38vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt6 .codingWrap ul {
+            width: 100%;
+            position: absolute;
+            top: -1vw;
+            left: 10vw; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt6 .codingWrap ul li {
+              position: absolute; }
+              .pjModal .pj-container .pjView #vansContainer #vansCnt6 .codingWrap ul li p {
+                font-size: 0.7vw;
+                position: absolute;
+                left: 0; }
+              .pjModal .pj-container .pjView #vansContainer #vansCnt6 .codingWrap ul li > div {
+                position: absolute;
+                left: 0; }
+                .pjModal .pj-container .pjView #vansContainer #vansCnt6 .codingWrap ul li > div img {
+                  height: auto;
+                  max-width: 100%;
+                  vertical-align: bottom; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt6 .codingWrap ul li:first-child p {
+              top: 0vw; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt6 .codingWrap ul li:first-child > div {
+              width: 49.16vw;
+              height: 14.58vw;
+              position: absolute;
+              left: -0.5vw; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt6 .codingWrap ul li:nth-child(2) {
+              top: 12.5vw; }
+              .pjModal .pj-container .pjView #vansContainer #vansCnt6 .codingWrap ul li:nth-child(2) p {
+                top: 0vw; }
+              .pjModal .pj-container .pjView #vansContainer #vansCnt6 .codingWrap ul li:nth-child(2) > div {
+                width: 47.39vw;
+                height: 13.7vw; }
+            .pjModal .pj-container .pjView #vansContainer #vansCnt6 .codingWrap ul li:last-child {
+              top: 26vw; }
+              .pjModal .pj-container .pjView #vansContainer #vansCnt6 .codingWrap ul li:last-child p {
+                top: 0vw; }
+              .pjModal .pj-container .pjView #vansContainer #vansCnt6 .codingWrap ul li:last-child > div {
+                width: 47.39vw;
+                height: 12.34vw; }
+      .pjModal .pj-container .pjView #vansContainer #vansCnt7 {
+        width: 100%;
+        position: relative;
+        font-family: yoon; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt7 .vansCnt7Bg {
+          overflow: hidden; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt7 .vansCnt7Bg p {
+            -webkit-transform: rotate(-10deg);
+            -moz-transform: rotate(-10deg);
+            -o-transform: rotate(-10deg);
+            -ms-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+            position: absolute;
+            font-size: 1.56vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt7 .vansCnt7Bg p:nth-child(1) {
+            top: -9vw;
+            left: -2vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt7 .vansCnt7Bg p:nth-child(2) {
+            top: 4vw;
+            left: -2vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt7 .vansCnt7Bg p:nth-child(3) {
+            width: 110%;
+            top: 30vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt7 .vansCnt7Bg p:nth-child(4) {
+            top: 45vw;
+            left: 2vw;
+            width: 110%; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt7 .vansCnt7Bg p:nth-child(5) {
+            top: -1vw;
+            left: -2vw;
+            width: 110%; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt7 .macbook {
+          -webkit-transform: translate(-50%, -50%);
+          -moz-transform: translate(-50%, -50%);
+          -o-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          position: absolute;
+          top: 44%;
+          left: 50%;
+          width: 58.11vw;
+          height: 36.46vw; }
+          .pjModal .pj-container .pjView #vansContainer #vansCnt7 .macbook img {
+            height: auto;
+            max-width: 100%;
+            vertical-align: bottom; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt7 a {
+          -webkit-transform: translate(-50%, -50%);
+          -moz-transform: translate(-50%, -50%);
+          -o-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          font-size: 1.56vw;
+          background: #fff;
+          border: 3px solid #000;
+          width: 11.67vw;
+          height: 3.28vw;
+          line-height: 3.28vw;
+          text-align: center; }
+        .pjModal .pj-container .pjView #vansContainer #vansCnt7 a:hover, .pjModal .pj-container .pjView #vansContainer #vansCnt7 a.focus {
+          background: #000;
+          color: #fff; }
+    .pjModal .pj-container .pjView #danContainer {
+      width: 100%;
+      overflow: hidden; }
+      .pjModal .pj-container .pjView #danContainer .danCnt_wrap {
+        height: 82.32vh; }
+        .pjModal .pj-container .pjView #danContainer .danCnt_wrap section {
+          float: left;
+          padding-top: 3.7vw;
+          padding-bottom: 6.25vw; }
+      .pjModal .pj-container .pjView #danContainer #danCnt1 {
+        width: 100%;
+        position: relative;
+        background: #fff; }
+        .pjModal .pj-container .pjView #danContainer #danCnt1 .danSquare {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 56.95vw;
+          height: 100%; }
+          .pjModal .pj-container .pjView #danContainer #danCnt1 .danSquare img {
+            height: auto;
+            max-width: 100%;
+            vertical-align: bottom; }
+        .pjModal .pj-container .pjView #danContainer #danCnt1 .danMoblie {
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 100%;
+          width: 65.1vw; }
+          .pjModal .pj-container .pjView #danContainer #danCnt1 .danMoblie img {
+            height: auto;
+            max-width: 100%;
+            vertical-align: bottom; }
+        .pjModal .pj-container .pjView #danContainer #danCnt1 h2 {
+          -webkit-transform: skewY(32deg);
+          -moz-transform: skewY(32deg);
+          -o-transform: skewY(32deg);
+          -ms-transform: skewY(32deg);
+          transform: skewY(32deg);
+          position: absolute;
+          top: 10.8vw;
+          left: 11%;
+          font-size: 2.8vw;
+          line-height: 5vw; }
+        .pjModal .pj-container .pjView #danContainer #danCnt1 p {
+          -webkit-transform: skewY(32deg);
+          -moz-transform: skewY(32deg);
+          -o-transform: skewY(32deg);
+          -ms-transform: skewY(32deg);
+          transform: skewY(32deg);
+          position: absolute;
+          top: 26vw;
+          left: 11%;
+          font-size: 1vw;
+          letter-spacing: 0.35vw;
+          font-family: yoon; }
+      .pjModal .pj-container .pjView #danContainer #danCnt2 {
+        width: 100%;
+        position: relative;
+        font-family: roboto;
+        background: #fff; }
+        .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutLeft, .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutRight {
+          width: 45%;
+          height: 100%;
+          float: left;
+          padding-left: 5%; }
+          .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutLeft .aboutSubTxt, .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutLeft .aboutSubTitle, .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutRight .aboutSubTxt, .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutRight .aboutSubTitle {
+            position: absolute; }
+          .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutLeft .aboutSubTitle, .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutRight .aboutSubTitle {
+            top: 5vw;
+            font-size: 2vw; }
+          .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutLeft .aboutSubTxt, .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutRight .aboutSubTxt {
+            top: 8vw;
+            font-size: 1.2vw;
+            margin-bottom: 65.43vw; }
+        .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutLeft .offLineGroup {
+          position: absolute;
+          top: 15vw;
+          left: 5%;
+          height: 16.51vw; }
+          .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutLeft .offLineGroup p {
+            -webkit-transform: translateY(-900%);
+            -moz-transform: translateY(-900%);
+            -o-transform: translateY(-900%);
+            -ms-transform: translateY(-900%);
+            transform: translateY(-900%);
+            text-align: center;
+            color: #fff;
+            font-size: 0.8vw; }
+          .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutLeft .offLineGroup .offLine {
+            width: 10vw;
+            height: 16.51vw; }
+            .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutLeft .offLineGroup .offLine img {
+              height: auto;
+              max-width: 100%;
+              vertical-align: bottom; }
+          .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutLeft .offLineGroup::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 10vw;
+            background-color: #000;
+            height: 2px;
+            width: 10vw; }
+        .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutLeft ul {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          float: right;
+          height: 16.51vw;
+          width: 25vw;
+          margin-top: 11vw;
+          background-color: #fff;
+          border: 2px solid black;
+          z-index: 50; }
+          .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutLeft ul li {
+            float: left;
+            width: 50%; }
+            .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutLeft ul li .subPurpose {
+              word-break: keep-all;
+              text-align: center;
+              font-size: 0.8vw;
+              padding: 2vw 1vw 1.5vw; }
+            .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutLeft ul li .purpose {
+              text-align: center;
+              font-size: 1.3vw; }
+        .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutLeft .blackSquare {
+          background: #000;
+          color: #fff;
+          font-size: 1.3vw;
+          text-align: center;
+          line-height: 2vw;
+          padding: 0.5vw 2vw;
+          display: inline-block;
+          position: absolute;
+          right: 50%;
+          bottom: 28%; }
+        .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutRight .logoTxt {
+          font-size: 1vw; }
+        .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutRight .topAria {
+          position: absolute;
+          top: 15vw;
+          left: 55%; }
+          .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutRight .topAria .dancheong {
+            width: 5vw;
+            height: 5vw;
+            margin-top: 1.5vw; }
+            .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutRight .topAria .dancheong img {
+              height: auto;
+              max-width: 100%;
+              vertical-align: bottom; }
+          .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutRight .topAria p {
+            position: absolute;
+            top: 0; }
+          .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutRight .topAria .logoTxtSe {
+            left: 400%; }
+          .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutRight .topAria .logoTxtTh {
+            left: 700%; }
+        .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutRight .bottomAria {
+          position: absolute;
+          top: 30vw;
+          left: 55%; }
+          .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutRight .bottomAria ul {
+            margin-top: 3vw; }
+            .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutRight .bottomAria ul li + li {
+              margin-left: 2vw; }
+            .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutRight .bottomAria ul li {
+              float: left;
+              width: 5vw; }
+            .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutRight .bottomAria ul li > .logos {
+              width: 5vw;
+              height: 5vw; }
+              .pjModal .pj-container .pjView #danContainer #danCnt2 .aboutRight .bottomAria ul li > .logos img {
+                height: auto;
+                max-width: 100%;
+                vertical-align: bottom; }
+      .pjModal .pj-container .pjView #danContainer #danCnt3 {
+        width: 100%;
+        position: relative;
+        font-family: roboto;
+        background: #fff; }
+        .pjModal .pj-container .pjView #danContainer #danCnt3 h2 {
+          position: absolute;
+          top: 5vw;
+          left: 5vw;
+          font-size: 2vw; }
+        .pjModal .pj-container .pjView #danContainer #danCnt3 .titleDanTp, .pjModal .pj-container .pjView #danContainer #danCnt3 .subTitDanTp {
+          font-size: 1vw; }
+        .pjModal .pj-container .pjView #danContainer #danCnt3 .subTitDanTp {
+          position: absolute;
+          top: 0;
+          left: 11vw; }
+        .pjModal .pj-container .pjView #danContainer #danCnt3 .traditional, .pjModal .pj-container .pjView #danContainer #danCnt3 .mordern {
+          position: absolute;
+          left: 5vw; }
+        .pjModal .pj-container .pjView #danContainer #danCnt3 .traditional {
+          top: 15vw; }
+          .pjModal .pj-container .pjView #danContainer #danCnt3 .traditional ul {
+            position: absolute;
+            top: 0;
+            left: 25vw;
+            width: 800%; }
+            .pjModal .pj-container .pjView #danContainer #danCnt3 .traditional ul .blackChip {
+              background-color: #000; }
+            .pjModal .pj-container .pjView #danContainer #danCnt3 .traditional ul .redChip {
+              background-color: #ff0000; }
+            .pjModal .pj-container .pjView #danContainer #danCnt3 .traditional ul .blueChip {
+              background-color: #0000ff; }
+            .pjModal .pj-container .pjView #danContainer #danCnt3 .traditional ul .yellowChip {
+              background-color: #ffff00; }
+            .pjModal .pj-container .pjView #danContainer #danCnt3 .traditional ul .whiteChip {
+              border: 0.2vw solid black; }
+            .pjModal .pj-container .pjView #danContainer #danCnt3 .traditional ul li + li {
+              margin-left: 1vw; }
+            .pjModal .pj-container .pjView #danContainer #danCnt3 .traditional ul .colorChip {
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+              float: left;
+              width: 6vw;
+              height: 1.5vw; }
+        .pjModal .pj-container .pjView #danContainer #danCnt3 .mordern {
+          top: 24vw; }
+          .pjModal .pj-container .pjView #danContainer #danCnt3 .mordern .shapes ul {
+            width: 800%;
+            position: absolute;
+            top: 0;
+            left: 25vw; }
+            .pjModal .pj-container .pjView #danContainer #danCnt3 .mordern .shapes ul li {
+              display: inline-block;
+              height: 8vw; }
+              .pjModal .pj-container .pjView #danContainer #danCnt3 .mordern .shapes ul li div {
+                height: 8vw;
+                position: absolute;
+                top: 0; }
+                .pjModal .pj-container .pjView #danContainer #danCnt3 .mordern .shapes ul li div img {
+                  height: auto;
+                  max-width: 100%;
+                  vertical-align: bottom; }
+            .pjModal .pj-container .pjView #danContainer #danCnt3 .mordern .shapes ul li + li {
+              margin-left: 1vw; }
+          .pjModal .pj-container .pjView #danContainer #danCnt3 .mordern .font .subTitDanTp {
+            top: 10vw; }
+        .pjModal .pj-container .pjView #danContainer #danCnt3 .exhibition {
+          position: absolute;
+          top: 0;
+          right: 8vw;
+          width: 14vw; }
+          .pjModal .pj-container .pjView #danContainer #danCnt3 .exhibition img {
+            height: auto;
+            max-width: 100%;
+            vertical-align: bottom; }
+    .pjModal .pj-container .pjView .class2 {
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      background-size: cover;
+      background: url("../images/about_me/x.png") no-repeat center;
+      position: absolute;
+      right: 0;
+      border-left: 3px solid #000;
+      top: 0;
+      width: 6.57vh;
+      height: 6.57vh; }
 
 /*# sourceMappingURL=main.css.map */
